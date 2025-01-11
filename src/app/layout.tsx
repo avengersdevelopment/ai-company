@@ -2,14 +2,14 @@ import Aos from "@/components/aos";
 import Providers from "@/components/providers";
 import { createClient } from "@/utils/supabase/server";
 import type { Metadata } from "next";
-import { DM_Sans } from "next/font/google";
+import { Fira_Code } from "next/font/google";
 import { twMerge } from "tailwind-merge";
 import "./globals.css";
 
-const dmSans = DM_Sans({
+const fira = Fira_Code({
   weight: ["400", "700"],
   subsets: ["latin"],
-  variable: "--font-dm",
+  variable: "--font-fira",
 });
 
 export const metadata: Metadata = {
@@ -40,7 +40,9 @@ export default async function RootLayout({
     <>
       <Aos />
       <html lang="en" className="relative">
-        <body className={twMerge(dmSans.variable, "font-dm antialiased")}>
+        <body
+          className={twMerge(fira.variable, "font-fira bg-black antialiased")}
+        >
           <Providers config={configs?.[0] || null}>{children}</Providers>
         </body>
       </html>

@@ -15,7 +15,7 @@ export default function Providers({ children, config }: ProvidersProps) {
       <ConfigProvider config={config}>
         <AppProgressBar
           height="4px"
-          color={"#000000"}
+          color={"#FFCE8E"}
           options={{ showSpinner: false }}
           shallowRouting
         />

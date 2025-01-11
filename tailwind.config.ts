@@ -15,7 +15,7 @@ const config: Config = {
     },
     extend: {
       fontFamily: {
-        dm: ["var(--font-dm)"],
+        fira: ["var(--font-fira)"],
       },
       container: {
         center: true,
@@ -26,6 +26,7 @@ const config: Config = {
       },
       animation: {
         shake: "shake 0.5s ease-in-out",
+        "spin-fast": "spin 500ms linear infinite",
       },
       keyframes: {
         shake: {
