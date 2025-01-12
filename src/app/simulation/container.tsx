@@ -32,7 +32,11 @@ export default function Container() {
         }
         case "consult": {
           setCommand("");
-          setContents((prev) => [...prev, Command, <ConsultContent />]);
+          setContents((prev) => [
+            ...prev,
+            Command,
+            <ConsultContent key={`consult ${contents.length}`} />,
+          ]);
           return;
         }
         case "queue": {
@@ -41,6 +45,7 @@ export default function Container() {
             ...prev,
             Command,
             <QueueContent
+              key={`queue ${contents.length}`}
               onStart={() => setIsLoading(true)}
               onDone={() => setIsLoading(false)}
             />,
@@ -53,6 +58,7 @@ export default function Container() {
             ...prev,
             Command,
             <HelpContent
+              key={`help ${contents.length}`}
               onStart={() => setIsLoading(true)}
               onDone={() => setIsLoading(false)}
             />,
