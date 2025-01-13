@@ -235,6 +235,7 @@ export default function Container() {
               <input
                 className="w-1/2 bg-transparent text-[#FFCE8E] caret-[#FFCE8E] focus:outline-none"
                 onBlur={({ target }) => target.focus()}
+                autoFocus
                 value={command}
                 onChange={(e) => setCommand(e.target.value)}
                 onKeyDown={handleSubmit}
