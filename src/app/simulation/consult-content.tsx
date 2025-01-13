@@ -3,10 +3,15 @@
 import { TypeAnimation } from "react-type-animation";
 import { ContentProps } from "./container";
 import { useUserStore } from "@/store/user-store";
-import { useState } from "react";
+import { useEffect, useRef, useState } from "react";
 
-export default function ConsultContent({ onStart, onDone }: ContentProps) {
+export default function ConsultContent({
+  onStart,
+  onDone,
+  onNextLine,
+}: ContentProps) {
   const { setCompanyName } = useUserStore();
+
   const [command, setCommand] = useState<string>("");
   const [answers, setAnswers] = useState<string[]>([""]);
 
@@ -20,14 +25,15 @@ export default function ConsultContent({ onStart, onDone }: ContentProps) {
         setStep((prev) => prev + 1);
 
         setCommand("");
-        return;
       } else {
         setAnswers((prev) => [...prev, command]);
         setStep((prev) => prev + 1);
 
         setCommand("");
-        return;
       }
+
+      onNextLine();
+      return;
     }
   };
 
@@ -266,8 +272,14 @@ export default function ConsultContent({ onStart, onDone }: ContentProps) {
             style={{ whiteSpace: "pre-line" }}
             speed={90}
             sequence={[
-              `Thank you for your input.\n\nProcessing data...`,
+              `Thank you for your input.`,
+              onNextLine,
+              `Thank you for your input.
+              
+              Processing data...`,
+              onNextLine,
               1000,
+              onNextLine,
               onDone,
             ]}
             wrapper="p"
@@ -282,7 +294,6 @@ export default function ConsultContent({ onStart, onDone }: ContentProps) {
           <input
             className="w-1/2 bg-transparent text-[#FFCE8E] caret-[#FFCE8E] focus:outline-none"
             onBlur={({ target }) => target.focus()}
-            autoFocus
             value={command}
             onChange={(e) => setCommand(e.target.value)}
             onKeyDown={handleSubmit}

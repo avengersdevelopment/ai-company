@@ -1,7 +1,7 @@
 "use client";
 
 import Image from "next/image";
-import { useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { TypeAnimation } from "react-type-animation";
 import HelpContent from "./help-content";
 import QueueContent from "./queue-content";
@@ -12,10 +12,12 @@ import { useRouter } from "next/navigation";
 export interface ContentProps {
   onStart: () => void;
   onDone: () => void;
+  onNextLine: () => void;
 }
 
 export default function Container() {
   const router = useRouter();
+  const endRef = useRef<HTMLDivElement>(null);
 
   const [command, setCommand] = useState<string>("");
   const [contents, setContents] = useState<JSX.Element[]>([]);
@@ -24,6 +26,11 @@ export default function Container() {
     useState<boolean>(false);
   const [isLoading, setIsLoading] = useState<boolean>(true);
   const [showInput, setShowInput] = useState<boolean>(true);
+  const [nextLine, setNextLine] = useState<number>(0);
+
+  function handleNextLine() {
+    setNextLine((prev) => prev + 1);
+  }
 
   const handleSubmit = async (e: React.KeyboardEvent<HTMLInputElement>) => {
     if (e.key === "Enter" && command.trim()) {
@@ -35,7 +42,7 @@ export default function Container() {
         case "status": {
           setCommand("");
           router.push("/status");
-          setIsLoading(true)
+          setIsLoading(true);
           return;
         }
         case "consult": {
@@ -53,6 +60,7 @@ export default function Container() {
                 setShowInput(true);
                 setIsLoading(false);
               }}
+              onNextLine={handleNextLine}
             />,
           ]);
           return;
@@ -66,6 +74,7 @@ export default function Container() {
               key={`queue ${contents.length}`}
               onStart={() => setIsLoading(true)}
               onDone={() => setIsLoading(false)}
+              onNextLine={handleNextLine}
             />,
           ]);
           return;
@@ -79,6 +88,7 @@ export default function Container() {
               key={`help ${contents.length}`}
               onStart={() => setIsLoading(true)}
               onDone={() => setIsLoading(false)}
+              onNextLine={handleNextLine}
             />,
           ]);
           return;
@@ -92,6 +102,7 @@ export default function Container() {
               key={`default ${contents.length}`}
               onStart={() => setIsLoading(true)}
               onDone={() => setIsLoading(false)}
+              onNextLine={handleNextLine}
             />,
           ]);
           return;
@@ -99,6 +110,12 @@ export default function Container() {
       }
     }
   };
+
+  useEffect(() => {
+    if (endRef.current) {
+      endRef.current.scrollIntoView();
+    }
+  }, [nextLine, endRef]);
 
   return (
     <main className="relative h-screen w-full px-10 py-16">
@@ -116,6 +133,23 @@ export default function Container() {
               setIsLoading(true);
             },
             1000,
+            `The screen flickers as you enter the terminal.`,
+            handleNextLine,
+            `The screen flickers as you enter the terminal.
+            Lines of code cascade across the screen, and a smooth robotic voice greets you.`,
+            handleNextLine,
+            `The screen flickers as you enter the terminal.
+            Lines of code cascade across the screen, and a smooth robotic voice greets you.
+            
+            Connecting to AI Company's Mainframe...`,
+            handleNextLine,
+            `The screen flickers as you enter the terminal.
+            Lines of code cascade across the screen, and a smooth robotic voice greets you.
+            
+            Connecting to AI Company's Mainframe...
+            
+            Welcome, User.`,
+            handleNextLine,
             `The screen flickers as you enter the terminal.
             Lines of code cascade across the screen, and a smooth robotic voice greets you.
             
@@ -124,6 +158,7 @@ export default function Container() {
             Welcome, User.
             
             Initializing your consultation space...`,
+            handleNextLine,
             1000,
             () => {
               setShowInstructions(true);
@@ -139,11 +174,26 @@ export default function Container() {
             style={{ whiteSpace: "pre-line" }}
             speed={90}
             sequence={[
+              `AI Company: Where Artificial Intelligence Meets Seamless Efficiency.`,
+              handleNextLine,
               `AI Company: Where Artificial Intelligence Meets Seamless Efficiency.
-                >  Type 'status' to view active AI tasks.
-                >  Type 'consult' to submit a request.
-                >  Type 'queue' to check your position.
-                >  Type 'help' for more commands.`,
+              >  Type 'status' to view active AI tasks.`,
+              handleNextLine,
+              `AI Company: Where Artificial Intelligence Meets Seamless Efficiency.
+              >  Type 'status' to view active AI tasks.
+              >  Type 'consult' to submit a request.`,
+              handleNextLine,
+              `AI Company: Where Artificial Intelligence Meets Seamless Efficiency.
+              >  Type 'status' to view active AI tasks.
+              >  Type 'consult' to submit a request.
+              >  Type 'queue' to check your position.`,
+              handleNextLine,
+              `AI Company: Where Artificial Intelligence Meets Seamless Efficiency.
+              >  Type 'status' to view active AI tasks.
+              >  Type 'consult' to submit a request.
+              >  Type 'queue' to check your position.
+              >  Type 'help' for more commands.`,
+              handleNextLine,
               1000,
               () => {
                 setShowStartSimulation(true);
@@ -160,7 +210,12 @@ export default function Container() {
             style={{ whiteSpace: "pre-line" }}
             speed={90}
             sequence={[
-              `Remember, unexpected outcomes are expected\nThe simulation is about to begin`,
+              `Remember, unexpected outcomes are expected`,
+              handleNextLine,
+              `Remember, unexpected outcomes are expected
+              
+              The simulation is about to begin`,
+              handleNextLine,
               500,
               () => {
                 setIsLoading(false);
@@ -180,7 +235,6 @@ export default function Container() {
               <input
                 className="w-1/2 bg-transparent text-[#FFCE8E] caret-[#FFCE8E] focus:outline-none"
                 onBlur={({ target }) => target.focus()}
-                autoFocus
                 value={command}
                 onChange={(e) => setCommand(e.target.value)}
                 onKeyDown={handleSubmit}
@@ -198,6 +252,8 @@ export default function Container() {
         ) : (
           <></>
         )}
+
+        <div ref={endRef} className="mt-4" />
       </div>
 
       <div className="absolute bottom-0 left-0 right-0 top-0 -z-10 h-full w-full">

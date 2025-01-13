@@ -13,10 +13,10 @@ const fira = Fira_Code({
 });
 
 export const metadata: Metadata = {
-  title: "App Name",
+  title: "AI Company",
   description: "App Description",
   openGraph: {
-    title: "App Name",
+    title: "AI Company",
     description: "App Description",
     url: "/",
     images: [
