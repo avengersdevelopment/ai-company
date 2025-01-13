@@ -10,7 +10,7 @@ export default function Container() {
 
   return (
     <main className="relative h-screen w-full px-10 py-16">
-      <div className="flex h-full w-full flex-col gap-4 justify-center">
+      <div className="flex h-full w-full flex-col justify-center gap-4">
         <p className="text-sm text-[#FFCE8E]">V.0.1.0</p>
         <p className="text-6xl font-bold text-[#FFCE8E]">AI COMPANY</p>
         <p className="w-1/2 text-sm text-[#FFCE8E]">
@@ -88,6 +88,16 @@ export default function Container() {
             </p>
           </div>
         </div>
+      </div>
+
+      <div className="absolute bottom-0 left-0 right-0 top-0 -z-10 h-full w-full">
+        <video
+          src="/assets/background/base-bg.webm"
+          autoPlay
+          loop
+          muted
+          className="h-full w-full object-fill object-center"
+        />
       </div>
     </main>
   );

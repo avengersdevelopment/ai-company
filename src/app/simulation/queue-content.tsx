@@ -3,8 +3,10 @@
 import { TypeAnimation } from "react-type-animation";
 import { ContentProps } from "./container";
 import { useState } from "react";
+import { useUserStore } from "@/store/user-store";
 
 export default function QueueContent({ onStart, onDone }: ContentProps) {
+  const { companyName } = useUserStore();
   const [showTotal, setShowTotal] = useState<boolean>(false);
   const [showList, setShowList] = useState<boolean>(false);
   const [showPosition, setShowPosition] = useState<boolean>(false);
@@ -57,7 +59,7 @@ export default function QueueContent({ onStart, onDone }: ContentProps) {
             5. Eclipse Innovations
             6. CyberCore Technologies
             7. HyperNet AI
-            8. **XYZ Tech Solutions** (Your Company)
+            8. ${companyName || "**XYZ Tech Solutions** (Your Company)"}
             9. Neural Nexus
             10. AstroSyn AI
             11. EchoSphere Labs
