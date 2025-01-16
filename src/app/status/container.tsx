@@ -15,17 +15,109 @@ interface StatusItem {
 const statusItems: StatusItem[] = [
   {
     id: 1,
-    type: "Strategy AI",
-    description: "Developing a growth strategy for client X.",
-    company: "fufufafa",
-    estimated: "~5 Hours",
+    type: "Insight AI",
+    description:
+      "Provides data-driven insights and visualizations for market trends, customer behavior, and performance metrics.",
+    company: "ArcTech Solutions",
+    estimated: "~2 Hours",
     status: "Active",
   },
   {
     id: 2,
-    type: "Analytical AI",
-    description: "Analyzing market trends for client Y's new product launch.",
-    company: "mulyono",
+    type: "Creative AI",
+    description:
+      "Generates branding ideas, ad copy, and creative campaigns to enhance client marketing and engagement strategies.",
+    company: "ArcTech Solutions",
+    estimated: "~3 Hours",
+    status: "In Queue",
+  },
+  {
+    id: 3,
+    type: "Financial AI",
+    description:
+      "Performs financial analysis, forecasts, and budgeting strategies to optimize costs and maximize ROI.",
+    company: "ArcTech Solutions",
+    estimated: "~5 Hours",
+    status: "In Queue",
+  },
+  {
+    id: 4,
+    type: "Operational AI",
+    description:
+      "Streamlines internal processes, evaluates supply chains, and suggests operational improvements to enhance efficiency.",
+    company: "ArcTech Solutions",
+    estimated: "~3 Hours",
+    status: "In Queue",
+  },
+  {
+    id: 5,
+    type: "Customer Experience AI",
+    description:
+      "Analyzes customer feedback and interactions to suggest improvements in user experience and customer journey design.",
+    company: "Quantum Forge",
+    estimated: "~5 Hours",
+    status: "Active",
+  },
+  {
+    id: 6,
+    type: "Growth AI",
+    description:
+      "Designs scaling strategies, partnership opportunities, and business expansion plans for startups and enterprises.",
+    company: "Quantum Forge",
+    estimated: "~3 Hours",
+    status: "In Queue",
+  },
+  {
+    id: 7,
+    type: "HR AI",
+    description:
+      "Supports recruitment, talent management, and workforce optimization using data-driven methodologies.",
+    company: "Quantum Forge",
+    estimated: "~5 Hours",
+    status: "In Queue",
+  },
+  {
+    id: 8,
+    type: "Compliance AI",
+    description:
+      "Ensures that business processes align with legal, environmental, and industry-specific regulations.",
+    company: "Quantum Forge",
+    estimated: "~3 Hours",
+    status: "In Queue",
+  },
+  {
+    id: 9,
+    type: "Competitor AI",
+    description:
+      "Monitors and analyzes competitor activity to provide actionable intelligence on positioning and differentiation.",
+    company: "Stratos",
+    estimated: "~5 Hours",
+    status: "Active",
+  },
+  {
+    id: 10,
+    type: "Innovation AI",
+    description:
+      "Suggests product innovations, R&D directions, and breakthrough ideas based on market and technology trends.",
+    company: "Stratos",
+    estimated: "~3 Hours",
+    status: "In Queue",
+  },
+  {
+    id: 11,
+    type: "Sustainability AI",
+    description:
+      "Develops eco-friendly strategies to help businesses reduce their carbon footprint and meet sustainability goals.",
+    company: "Stratos",
+    estimated: "~5 Hours",
+    status: "In Queue",
+  },
+  {
+    id: 12,
+    type: "Crisis AI",
+    description:
+      "Creates crisis management plans and provides real-time recommendations to mitigate risks during emergencies.",
+    company: "Stratos",
     estimated: "~3 Hours",
     status: "In Queue",
   },
