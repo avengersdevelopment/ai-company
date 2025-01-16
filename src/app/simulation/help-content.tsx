@@ -35,6 +35,21 @@ export default function HelpContent({
               >  Type 'queue' to check your position.
               >  Type 'help' for more commands.`,
         onNextLine,
+        `AI Company: Where Artificial Intelligence Meets Seamless Efficiency.
+              >  Type 'status' to view active AI tasks.
+              >  Type 'consult' to submit a request.
+              >  Type 'queue' to check your position.
+              >  Type 'help' for more commands.
+              >  Type 'clear' to clear commands.`,
+        onNextLine,
+        `AI Company: Where Artificial Intelligence Meets Seamless Efficiency.
+              >  Type 'status' to view active AI tasks.
+              >  Type 'consult' to submit a request.
+              >  Type 'queue' to check your position.
+              >  Type 'help' for more commands.
+              >  Type 'clear' to clear commands.
+              >  Type 'exit' to exit program.`,
+        onNextLine,
         onDone,
       ]}
       wrapper="p"

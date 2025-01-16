@@ -93,6 +93,17 @@ export default function Container() {
           ]);
           return;
         }
+        case "clear": {
+          setCommand("");
+          setContents([]);
+          return;
+        }
+        case "exit": {
+          setCommand("");
+          router.replace("/");
+          setIsLoading(true);
+          return;
+        }
         default: {
           setCommand("");
           setContents((prev) => [
@@ -193,6 +204,21 @@ export default function Container() {
               >  Type 'consult' to submit a request.
               >  Type 'queue' to check your position.
               >  Type 'help' for more commands.`,
+              handleNextLine,
+              `AI Company: Where Artificial Intelligence Meets Seamless Efficiency.
+              >  Type 'status' to view active AI tasks.
+              >  Type 'consult' to submit a request.
+              >  Type 'queue' to check your position.
+              >  Type 'help' for more commands.
+              >  Type 'clear' to clear commands.`,
+              handleNextLine,
+              `AI Company: Where Artificial Intelligence Meets Seamless Efficiency.
+              >  Type 'status' to view active AI tasks.
+              >  Type 'consult' to submit a request.
+              >  Type 'queue' to check your position.
+              >  Type 'help' for more commands.
+              >  Type 'clear' to clear commands.
+              >  Type 'exit' to exit program.`,
               handleNextLine,
               1000,
               () => {

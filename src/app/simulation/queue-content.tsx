@@ -40,7 +40,7 @@ export default function QueueContent({
           style={{ whiteSpace: "pre-line" }}
           speed={90}
           sequence={[
-            `> Total Companies in Queue: 20`,
+            `> Total Companies in Queue: ${companyName ? "18" : "17"}`,
             onNextLine,
             1000,
             () => {
@@ -100,7 +100,7 @@ export default function QueueContent({
             5. Eclipse Innovations
             6. CyberCore Technologies
             7. HyperNet AI
-            8. ${companyName || "**XYZ Tech Solutions** (Your Company)"}`,
+            8. Aether AI Lab`,
             onNextLine,
             `1. NovaTech Labs
             2. Quantum Dynamics
@@ -109,7 +109,7 @@ export default function QueueContent({
             5. Eclipse Innovations
             6. CyberCore Technologies
             7. HyperNet AI
-            8. ${companyName || "**XYZ Tech Solutions** (Your Company)"}
+            8. Aether AI Lab}
             9. Neural Nexus`,
             onNextLine,
             `1. NovaTech Labs
@@ -119,7 +119,7 @@ export default function QueueContent({
             5. Eclipse Innovations
             6. CyberCore Technologies
             7. HyperNet AI
-            8. ${companyName || "**XYZ Tech Solutions** (Your Company)"}
+            8. Aether AI Lab
             9. Neural Nexus
             10. AstroSyn AI`,
             onNextLine,
@@ -130,7 +130,7 @@ export default function QueueContent({
             5. Eclipse Innovations
             6. CyberCore Technologies
             7. HyperNet AI
-            8. ${companyName || "**XYZ Tech Solutions** (Your Company)"}
+            8. Aether AI Lab
             9. Neural Nexus
             10. AstroSyn AI
             11. EchoSphere Labs`,
@@ -142,7 +142,7 @@ export default function QueueContent({
             5. Eclipse Innovations
             6. CyberCore Technologies
             7. HyperNet AI
-            8. ${companyName || "**XYZ Tech Solutions** (Your Company)"}
+            8. Aether AI Lab
             9. Neural Nexus
             10. AstroSyn AI
             11. EchoSphere Labs
@@ -155,7 +155,7 @@ export default function QueueContent({
             5. Eclipse Innovations
             6. CyberCore Technologies
             7. HyperNet AI
-            8. ${companyName || "**XYZ Tech Solutions** (Your Company)"}
+            8. Aether AI Lab
             9. Neural Nexus
             10. AstroSyn AI
             11. EchoSphere Labs
@@ -169,7 +169,7 @@ export default function QueueContent({
             5. Eclipse Innovations
             6. CyberCore Technologies
             7. HyperNet AI
-            8. ${companyName || "**XYZ Tech Solutions** (Your Company)"}
+            8. Aether AI Lab
             9. Neural Nexus
             10. AstroSyn AI
             11. EchoSphere Labs
@@ -184,7 +184,7 @@ export default function QueueContent({
             5. Eclipse Innovations
             6. CyberCore Technologies
             7. HyperNet AI
-            8. ${companyName || "**XYZ Tech Solutions** (Your Company)"}
+            8. Aether AI Lab
             9. Neural Nexus
             10. AstroSyn AI
             11. EchoSphere Labs
@@ -200,7 +200,7 @@ export default function QueueContent({
             5. Eclipse Innovations
             6. CyberCore Technologies
             7. HyperNet AI
-            8. ${companyName || "**XYZ Tech Solutions** (Your Company)"}
+            8. Aether AI Lab
             9. Neural Nexus
             10. AstroSyn AI
             11. EchoSphere Labs
@@ -217,7 +217,7 @@ export default function QueueContent({
             5. Eclipse Innovations
             6. CyberCore Technologies
             7. HyperNet AI
-            8. ${companyName || "**XYZ Tech Solutions** (Your Company)"}
+            8. Aether AI Lab
             9. Neural Nexus
             10. AstroSyn AI
             11. EchoSphere Labs
@@ -228,14 +228,15 @@ export default function QueueContent({
             16. Infinity Codex
             17. SpectraWave Solutions`,
             onNextLine,
-            `1. NovaTech Labs
+            companyName &&
+              `1. NovaTech Labs
             2. Quantum Dynamics
             3. Zenith Solutions
             4. Orion AI Systems
             5. Eclipse Innovations
             6. CyberCore Technologies
             7. HyperNet AI
-            8. ${companyName || "**XYZ Tech Solutions** (Your Company)"}
+            8. Aether AI Lab
             9. Neural Nexus
             10. AstroSyn AI
             11. EchoSphere Labs
@@ -245,49 +246,8 @@ export default function QueueContent({
             15. Polaris Strategies
             16. Infinity Codex
             17. SpectraWave Solutions
-            18. CodeCrafters Inc.`,
-            onNextLine,
-            `1. NovaTech Labs
-            2. Quantum Dynamics
-            3. Zenith Solutions
-            4. Orion AI Systems
-            5. Eclipse Innovations
-            6. CyberCore Technologies
-            7. HyperNet AI
-            8. ${companyName || "**XYZ Tech Solutions** (Your Company)"}
-            9. Neural Nexus
-            10. AstroSyn AI
-            11. EchoSphere Labs
-            12. Titan Data Systems
-            13. ByteGrid Analytics
-            14. MetaFusion AI
-            15. Polaris Strategies
-            16. Infinity Codex
-            17. SpectraWave Solutions
-            18. CodeCrafters Inc.
-            19. Aether AI Labs`,
-            onNextLine,
-            `1. NovaTech Labs
-            2. Quantum Dynamics
-            3. Zenith Solutions
-            4. Orion AI Systems
-            5. Eclipse Innovations
-            6. CyberCore Technologies
-            7. HyperNet AI
-            8. ${companyName || "**XYZ Tech Solutions** (Your Company)"}
-            9. Neural Nexus
-            10. AstroSyn AI
-            11. EchoSphere Labs
-            12. Titan Data Systems
-            13. ByteGrid Analytics
-            14. MetaFusion AI
-            15. Polaris Strategies
-            16. Infinity Codex
-            17. SpectraWave Solutions
-            18. CodeCrafters Inc.
-            19. Aether AI Labs
-            20. Quantum Edge Systems`,
-            onNextLine,
+            18. ${companyName}`,
+            companyName && onNextLine,
             1000,
             onNextLine,
             () => {
