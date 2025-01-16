@@ -13,11 +13,11 @@ const fira = Fira_Code({
 });
 
 export const metadata: Metadata = {
-  title: "AI Company",
-  description: "App Description",
+  title: "Neuroworks",
+  description: "Fully AI-driven Consulting Firm",
   openGraph: {
-    title: "AI Company",
-    description: "App Description",
+    title: "Neuroworks",
+    description: "Fully AI-driven Consulting Firm",
     url: "/",
     images: [
       {
@@ -41,7 +41,7 @@ export default async function RootLayout({
       <Aos />
       <html lang="en" className="relative">
         <body
-          className={twMerge(fira.variable, "font-fira bg-black antialiased")}
+          className={twMerge(fira.variable, "bg-black font-fira antialiased")}
         >
           <Providers config={configs?.[0] || null}>{children}</Providers>
         </body>

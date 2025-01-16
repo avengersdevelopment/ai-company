@@ -58,211 +58,210 @@ export default function QueueContent({
           style={{ whiteSpace: "pre-line" }}
           speed={90}
           sequence={[
-            `1. NovaTech Labs`,
+            `1.	ArcTech Solutions`,
             onNextLine,
-            `1. NovaTech Labs
-            2. Quantum Dynamics`,
+            `1.	ArcTech Solutions
+              2.	Quantum Forge`,
             onNextLine,
-            `1. NovaTech Labs
-            2. Quantum Dynamics
-            3. Zenith Solutions`,
+            `1.	ArcTech Solutions
+              2.	Quantum Forge
+              3.	Stratos`,
             onNextLine,
-            `1. NovaTech Labs
-            2. Quantum Dynamics
-            3. Zenith Solutions
-            4. Orion AI Systems`,
+            `1.	ArcTech Solutions
+              2.	Quantum Forge
+              3.	Stratos
+              4.	Orionix`,
             onNextLine,
-            `1. NovaTech Labs
-            2. Quantum Dynamics
-            3. Zenith Solutions
-            4. Orion AI Systems
-            5. Eclipse Innovations`,
+            `1.	ArcTech Solutions
+              2.	Quantum Forge
+              3.	Stratos
+              4.	Orionix
+              5.	flux innovations`,
             onNextLine,
-            `1. NovaTech Labs
-            2. Quantum Dynamics
-            3. Zenith Solutions
-            4. Orion AI Systems
-            5. Eclipse Innovations
-            6. CyberCore Technologies`,
+            `1.	ArcTech Solutions
+              2.	Quantum Forge
+              3.	Stratos
+              4.	Orionix
+              5.	flux innovations
+              6.	CoreByte Systems`,
             onNextLine,
-            `1. NovaTech Labs
-            2. Quantum Dynamics
-            3. Zenith Solutions
-            4. Orion AI Systems
-            5. Eclipse Innovations
-            6. CyberCore Technologies
-            7. HyperNet AI`,
+            `1.	ArcTech Solutions
+              2.	Quantum Forge
+              3.	Stratos
+              4.	Orionix
+              5.	flux innovations
+              6.	CoreByte Systems
+              7.	Nexum AI`,
             onNextLine,
-            `1. NovaTech Labs
-            2. Quantum Dynamics
-            3. Zenith Solutions
-            4. Orion AI Systems
-            5. Eclipse Innovations
-            6. CyberCore Technologies
-            7. HyperNet AI
-            8. Aether AI Lab`,
+            `1.	ArcTech Solutions
+              2.	Quantum Forge
+              3.	Stratos
+              4.	Orionix
+              5.	flux innovations
+              6.	CoreByte Systems
+              7.	Nexum AI
+              8.	aeris lab`,
             onNextLine,
-            `1. NovaTech Labs
-            2. Quantum Dynamics
-            3. Zenith Solutions
-            4. Orion AI Systems
-            5. Eclipse Innovations
-            6. CyberCore Technologies
-            7. HyperNet AI
-            8. Aether AI Lab
-            9. Neural Nexus`,
+            `1.	ArcTech Solutions
+              2.	Quantum Forge
+              3.	Stratos
+              4.	Orionix
+              5.	flux innovations
+              6.	CoreByte Systems
+              7.	Nexum AI
+              8.	aeris lab
+              9.	NeuralSphere`,
             onNextLine,
-            `1. NovaTech Labs
-            2. Quantum Dynamics
-            3. Zenith Solutions
-            4. Orion AI Systems
-            5. Eclipse Innovations
-            6. CyberCore Technologies
-            7. HyperNet AI
-            8. Aether AI Lab
-            9. Neural Nexus
-            10. AstroSyn AI`,
+            `1.	ArcTech Solutions
+              2.	Quantum Forge
+              3.	Stratos
+              4.	Orionix
+              5.	flux innovations
+              6.	CoreByte Systems
+              7.	Nexum AI
+              8.	aeris lab
+              9.	NeuralSphere
+              10.	Celestix`,
             onNextLine,
-            `1. NovaTech Labs
-            2. Quantum Dynamics
-            3. Zenith Solutions
-            4. Orion AI Systems
-            5. Eclipse Innovations
-            6. CyberCore Technologies
-            7. HyperNet AI
-            8. Aether AI Lab
-            9. Neural Nexus
-            10. AstroSyn AI
-            11. EchoSphere Labs`,
+            `1.	ArcTech Solutions
+              2.	Quantum Forge
+              3.	Stratos
+              4.	Orionix
+              5.	flux innovations
+              6.	CoreByte Systems
+              7.	Nexum AI
+              8.	aeris lab
+              9.	NeuralSphere
+              10.	Celestix
+              11.	TerraGrid`,
             onNextLine,
-            `1. NovaTech Labs
-            2. Quantum Dynamics
-            3. Zenith Solutions
-            4. Orion AI Systems
-            5. Eclipse Innovations
-            6. CyberCore Technologies
-            7. HyperNet AI
-            8. Aether AI Lab
-            9. Neural Nexus
-            10. AstroSyn AI
-            11. EchoSphere Labs
-            12. Titan Data Systems`,
+            `1.	ArcTech Solutions
+              2.	Quantum Forge
+              3.	Stratos
+              4.	Orionix
+              5.	flux innovations
+              6.	CoreByte Systems
+              7.	Nexum AI
+              8.	aeris lab
+              9.	NeuralSphere
+              10.	Celestix
+              11.	TerraGrid`,
             onNextLine,
-            `1. NovaTech Labs
-            2. Quantum Dynamics
-            3. Zenith Solutions
-            4. Orion AI Systems
-            5. Eclipse Innovations
-            6. CyberCore Technologies
-            7. HyperNet AI
-            8. Aether AI Lab
-            9. Neural Nexus
-            10. AstroSyn AI
-            11. EchoSphere Labs
-            12. Titan Data Systems
-            13. ByteGrid Analytics`,
+            `1.	ArcTech Solutions
+              2.	Quantum Forge
+              3.	Stratos
+              4.	Orionix
+              5.	flux innovations
+              6.	CoreByte Systems
+              7.	Nexum AI
+              8.	aeris lab
+              9.	NeuralSphere
+              10.	Celestix
+              11.	TerraGrid
+              12.	ZenithCore
+              13.	ByteCraft`,
             onNextLine,
-            `1. NovaTech Labs
-            2. Quantum Dynamics
-            3. Zenith Solutions
-            4. Orion AI Systems
-            5. Eclipse Innovations
-            6. CyberCore Technologies
-            7. HyperNet AI
-            8. Aether AI Lab
-            9. Neural Nexus
-            10. AstroSyn AI
-            11. EchoSphere Labs
-            12. Titan Data Systems
-            13. ByteGrid Analytics
-            14. MetaFusion AI`,
+            `1.	ArcTech Solutions
+              2.	Quantum Forge
+              3.	Stratos
+              4.	Orionix
+              5.	flux innovations
+              6.	CoreByte Systems
+              7.	Nexum AI
+              8.	aeris lab
+              9.	NeuralSphere
+              10.	Celestix
+              11.	TerraGrid
+              12.	ZenithCore
+              13.	ByteCraft
+              14.	NovaFusion`,
             onNextLine,
-            `1. NovaTech Labs
-            2. Quantum Dynamics
-            3. Zenith Solutions
-            4. Orion AI Systems
-            5. Eclipse Innovations
-            6. CyberCore Technologies
-            7. HyperNet AI
-            8. Aether AI Lab
-            9. Neural Nexus
-            10. AstroSyn AI
-            11. EchoSphere Labs
-            12. Titan Data Systems
-            13. ByteGrid Analytics
-            14. MetaFusion AI
-            15. Polaris Strategies`,
+            `1.	ArcTech Solutions
+              2.	Quantum Forge
+              3.	Stratos
+              4.	Orionix
+              5.	flux innovations
+              6.	CoreByte Systems
+              7.	Nexum AI
+              8.	aeris lab
+              9.	NeuralSphere
+              10.	Celestix
+              11.	TerraGrid
+              12.	ZenithCore
+              13.	ByteCraft
+              14.	NovaFusion
+              15.	Polaris Nexus`,
             onNextLine,
-            `1. NovaTech Labs
-            2. Quantum Dynamics
-            3. Zenith Solutions
-            4. Orion AI Systems
-            5. Eclipse Innovations
-            6. CyberCore Technologies
-            7. HyperNet AI
-            8. Aether AI Lab
-            9. Neural Nexus
-            10. AstroSyn AI
-            11. EchoSphere Labs
-            12. Titan Data Systems
-            13. ByteGrid Analytics
-            14. MetaFusion AI
-            15. Polaris Strategies
-            16. Infinity Codex`,
+            `1.	ArcTech Solutions
+              2.	Quantum Forge
+              3.	Stratos
+              4.	Orionix
+              5.	flux innovations
+              6.	CoreByte Systems
+              7.	Nexum AI
+              8.	aeris lab
+              9.	NeuralSphere
+              10.	Celestix
+              11.	TerraGrid
+              12.	ZenithCore
+              13.	ByteCraft
+              14.	NovaFusion
+              15.	Polaris Nexus
+              16.	infinicode`,
             onNextLine,
-            `1. NovaTech Labs
-            2. Quantum Dynamics
-            3. Zenith Solutions
-            4. Orion AI Systems
-            5. Eclipse Innovations
-            6. CyberCore Technologies
-            7. HyperNet AI
-            8. Aether AI Lab
-            9. Neural Nexus
-            10. AstroSyn AI
-            11. EchoSphere Labs
-            12. Titan Data Systems
-            13. ByteGrid Analytics
-            14. MetaFusion AI
-            15. Polaris Strategies
-            16. Infinity Codex
-            17. SpectraWave Solutions`,
+            `1.	ArcTech Solutions
+              2.	Quantum Forge
+              3.	Stratos
+              4.	Orionix
+              5.	flux innovations
+              6.	CoreByte Systems
+              7.	Nexum AI
+              8.	aeris lab
+              9.	NeuralSphere
+              10.	Celestix
+              11.	TerraGrid
+              12.	ZenithCore
+              13.	ByteCraft
+              14.	NovaFusion
+              15.	Polaris Nexus
+              16.	infinicode
+              17.	Lumora`,
             companyName
-              ? `1. NovaTech Labs
-            2. Quantum Dynamics
-            3. Zenith Solutions
-            4. Orion AI Systems
-            5. Eclipse Innovations
-            6. CyberCore Technologies
-            7. HyperNet AI
-            8. Aether AI Lab
-            9. Neural Nexus
-            10. AstroSyn AI
-            11. EchoSphere Labs
-            12. Titan Data Systems
-            13. ByteGrid Analytics
-            14. MetaFusion AI
-            15. Polaris Strategies
-            16. Infinity Codex
-            17. SpectraWave Solutions
+              ? `1.	ArcTech Solutions
+              2.	Quantum Forge
+              3.	Stratos
+              4.	Orionix
+              5.	flux innovations
+              6.	CoreByte Systems
+              7.	Nexum AI
+              8.	aeris lab
+              9.	NeuralSphere
+              10.	Celestix
+              11.	TerraGrid
+              12.	ZenithCore
+              13.	ByteCraft
+              14.	NovaFusion
+              15.	Polaris Nexus
+              16.	infinicode
+              17.	Lumora
             18. ${companyName}`
-              : `1. NovaTech Labs
-            2. Quantum Dynamics
-            3. Zenith Solutions
-            4. Orion AI Systems
-            5. Eclipse Innovations
-            6. CyberCore Technologies
-            7. HyperNet AI
-            8. Aether AI Lab
-            9. Neural Nexus
-            10. AstroSyn AI
-            11. EchoSphere Labs
-            12. Titan Data Systems
-            13. ByteGrid Analytics
-            14. MetaFusion AI
-            15. Polaris Strategies
-            16. Infinity Codex
-            17. SpectraWave Solutions`,
+              : `1.	ArcTech Solutions
+              2.	Quantum Forge
+              3.	Stratos
+              4.	Orionix
+              5.	flux innovations
+              6.	CoreByte Systems
+              7.	Nexum AI
+              8.	aeris lab
+              9.	NeuralSphere
+              10.	Celestix
+              11.	TerraGrid
+              12.	ZenithCore
+              13.	ByteCraft
+              14.	NovaFusion
+              15.	Polaris Nexus
+              16.	infinicode
+              17.	Lumora`,
             1000,
             onNextLine,
             () => {

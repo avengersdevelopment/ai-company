@@ -38,7 +38,9 @@ export default function Container() {
         <p className="text-sm text-[#FFCE8E]">{`>  ${command}`}</p>
       );
 
-      switch (command) {
+      const lowercaseCommand = command.toLowerCase();
+
+      switch (lowercaseCommand) {
         case "status": {
           setCommand("");
           router.push("/status");
@@ -133,7 +135,7 @@ export default function Container() {
       <div className="flex h-full w-full flex-col gap-4 overflow-y-auto">
         <p className="text-sm text-[#FFCE8E]">V.0.1.0</p>
         <p className="text-xl font-bold text-[#FFCE8E] md:text-3xl">
-          Welcome to AI Command Center
+          Welcome to Neurowork&apos;s Commands Center
         </p>
         <TypeAnimation
           className="text-sm text-[#FFCE8E]"
@@ -152,19 +154,19 @@ export default function Container() {
             `The screen flickers as you enter the terminal.
             Lines of code cascade across the screen, and a smooth robotic voice greets you.
             
-            Connecting to AI Company's Mainframe...`,
+            Connecting to Neuroworks's Mainframe...`,
             handleNextLine,
             `The screen flickers as you enter the terminal.
             Lines of code cascade across the screen, and a smooth robotic voice greets you.
             
-            Connecting to AI Company's Mainframe...
+            Connecting to Neuroworks's Mainframe...
             
             Welcome, User.`,
             handleNextLine,
             `The screen flickers as you enter the terminal.
             Lines of code cascade across the screen, and a smooth robotic voice greets you.
             
-            Connecting to AI Company's Mainframe...
+            Connecting to Neuroworks's Mainframe...
             
             Welcome, User.
             
@@ -185,34 +187,34 @@ export default function Container() {
             style={{ whiteSpace: "pre-line" }}
             speed={90}
             sequence={[
-              `AI Company: Where Artificial Intelligence Meets Seamless Efficiency.`,
+              `Neuroworks: Where Artificial Intelligence Meets Seamless Efficiency.`,
               handleNextLine,
-              `AI Company: Where Artificial Intelligence Meets Seamless Efficiency.
+              `Neuroworks: Where Artificial Intelligence Meets Seamless Efficiency.
               >  Type 'status' to view active AI tasks.`,
               handleNextLine,
-              `AI Company: Where Artificial Intelligence Meets Seamless Efficiency.
+              `Neuroworks: Where Artificial Intelligence Meets Seamless Efficiency.
               >  Type 'status' to view active AI tasks.
               >  Type 'consult' to submit a request.`,
               handleNextLine,
-              `AI Company: Where Artificial Intelligence Meets Seamless Efficiency.
+              `Neuroworks: Where Artificial Intelligence Meets Seamless Efficiency.
               >  Type 'status' to view active AI tasks.
               >  Type 'consult' to submit a request.
               >  Type 'queue' to check your position.`,
               handleNextLine,
-              `AI Company: Where Artificial Intelligence Meets Seamless Efficiency.
+              `Neuroworks: Where Artificial Intelligence Meets Seamless Efficiency.
               >  Type 'status' to view active AI tasks.
               >  Type 'consult' to submit a request.
               >  Type 'queue' to check your position.
               >  Type 'help' for more commands.`,
               handleNextLine,
-              `AI Company: Where Artificial Intelligence Meets Seamless Efficiency.
+              `Neuroworks: Where Artificial Intelligence Meets Seamless Efficiency.
               >  Type 'status' to view active AI tasks.
               >  Type 'consult' to submit a request.
               >  Type 'queue' to check your position.
               >  Type 'help' for more commands.
               >  Type 'clear' to clear commands.`,
               handleNextLine,
-              `AI Company: Where Artificial Intelligence Meets Seamless Efficiency.
+              `Neuroworks: Where Artificial Intelligence Meets Seamless Efficiency.
               >  Type 'status' to view active AI tasks.
               >  Type 'consult' to submit a request.
               >  Type 'queue' to check your position.

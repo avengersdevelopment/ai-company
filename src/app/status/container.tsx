@@ -72,12 +72,12 @@ export default function Container() {
               <thead className="sticky top-0 border-collapse bg-[#251B13]">
                 <tr className="border border-t-0 border-[#FFCE8E] text-sm font-bold text-[#FDB479]">
                   <th className="backdrop- border-r border-[#FFCE8E] p-4">
-                    Agent Type
+                    Name
                   </th>
                   <th className="border-r border-[#FFCE8E] p-4">
                     Task Description
                   </th>
-                  <th className="border-r border-[#FFCE8E] p-4">Company</th>
+                  <th className="border-r border-[#FFCE8E] p-4">Client</th>
                   <th className="border-r border-[#FFCE8E] p-4">
                     Estimated Time
                   </th>
