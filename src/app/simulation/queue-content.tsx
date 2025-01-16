@@ -109,7 +109,7 @@ export default function QueueContent({
             5. Eclipse Innovations
             6. CyberCore Technologies
             7. HyperNet AI
-            8. Aether AI Lab}
+            8. Aether AI Lab
             9. Neural Nexus`,
             onNextLine,
             `1. NovaTech Labs
@@ -227,9 +227,8 @@ export default function QueueContent({
             15. Polaris Strategies
             16. Infinity Codex
             17. SpectraWave Solutions`,
-            onNextLine,
-            companyName &&
-              `1. NovaTech Labs
+            companyName
+              ? `1. NovaTech Labs
             2. Quantum Dynamics
             3. Zenith Solutions
             4. Orion AI Systems
@@ -246,8 +245,24 @@ export default function QueueContent({
             15. Polaris Strategies
             16. Infinity Codex
             17. SpectraWave Solutions
-            18. ${companyName}`,
-            companyName && onNextLine,
+            18. ${companyName}`
+              : `1. NovaTech Labs
+            2. Quantum Dynamics
+            3. Zenith Solutions
+            4. Orion AI Systems
+            5. Eclipse Innovations
+            6. CyberCore Technologies
+            7. HyperNet AI
+            8. Aether AI Lab
+            9. Neural Nexus
+            10. AstroSyn AI
+            11. EchoSphere Labs
+            12. Titan Data Systems
+            13. ByteGrid Analytics
+            14. MetaFusion AI
+            15. Polaris Strategies
+            16. Infinity Codex
+            17. SpectraWave Solutions`,
             1000,
             onNextLine,
             () => {
@@ -264,16 +279,29 @@ export default function QueueContent({
           className="text-sm text-[#FFCE8E]"
           style={{ whiteSpace: "pre-line" }}
           speed={90}
-          sequence={[
-            `> Your Position: 8 of 20`,
-            onNextLine,
-            `> Your Position: 8 of 20
+          sequence={
+            companyName
+              ? [
+                  `> Your Position: 18 of 18`,
+                  onNextLine,
+                  `> Your Position: 18 of 18
             > Estimated Wait Time: 15 minutes`,
-            onNextLine,
-            1000,
-            onNextLine,
-            onDone,
-          ]}
+                  onNextLine,
+                  1000,
+                  onNextLine,
+                  onDone,
+                ]
+              : [
+                  `You haven't registered your company yet`,
+                  onNextLine,
+                  `You haven't registered your company yet
+                  Please execute command 'consult' to submit a request`,
+                  onNextLine,
+                  1000,
+                  onNextLine,
+                  onDone,
+                ]
+          }
           wrapper="p"
           cursor={false}
         />
