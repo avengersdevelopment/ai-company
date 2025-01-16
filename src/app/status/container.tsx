@@ -33,7 +33,7 @@ const statusItems: StatusItem[] = [
 
 export default function Container() {
   return (
-    <main className="relative h-screen w-full px-10 py-16">
+    <main className="relative h-screen w-full px-4 py-16 md:px-10">
       <Image
         src={"/assets/background/radius-left.webp"}
         width={1000}
@@ -50,18 +50,18 @@ export default function Container() {
         className="absolute bottom-0 right-0 h-full w-auto"
       />
 
-      <div className="absolute left-10 top-16 z-50">
+      <div className="absolute left-4 top-16 z-50 md:left-10">
         <Link href="/simulation">
-          <p className="text-lg text-[#FFCE8E]">Back To Terminal</p>
+          <p className="text-sm text-[#FFCE8E] md:text-lg">Back To Terminal</p>
         </Link>
       </div>
 
-      <div className="absolute bottom-16 left-0 right-0 top-0 px-10 pt-28 z-40">
+      <div className="absolute bottom-16 left-0 right-0 top-0 z-40 px-4 pt-28 md:px-10">
         <div className="flex h-full w-full flex-col">
-          <p className="mb-4 mt-10 text-3xl font-bold text-[#FFCE8E]">
+          <p className="mb-4 mt-10 text-xl font-bold text-[#FFCE8E] md:text-3xl">
             Consultation Task Status
           </p>
-          <p className="mb-10 w-1/2 text-sm text-[#FFCE8E]">
+          <p className="mb-10 w-full text-sm text-[#FFCE8E] md:w-1/2">
             Below is an overview of active and pending tasks managed by the AI
             for your consulting needs. Each task includes a role name, task
             details, estimated completion time, and current status.

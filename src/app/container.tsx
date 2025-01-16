@@ -9,18 +9,18 @@ export default function Container() {
   const config = store((state) => state.config);
 
   return (
-    <main className="relative h-screen w-full px-10 py-16">
+    <main className="relative h-full min-h-screen w-full px-4 py-16 md:h-screen md:px-10">
       <div className="flex h-full w-full flex-col justify-center gap-4">
         <p className="text-sm text-[#FFCE8E]">V.0.1.0</p>
         <p className="text-6xl font-bold text-[#FFCE8E]">AI COMPANY</p>
-        <p className="w-1/2 text-sm text-[#FFCE8E]">
+        <p className="w-full text-sm text-[#FFCE8E] md:w-1/2">
           we&apos;re redefining the future of consulting by running a fully
           AI-driven workforce. Every department, every role, and every task is
           powered by cutting-edge AI models designed to deliver unparalleled
           efficiency, precision, and innovation.
         </p>
 
-        <div className="flex gap-4">
+        <div className="flex flex-col gap-4 md:flex-row">
           <Link href="/simulation">
             <Image
               src={"/assets/homepage/btn-simulation.png"}
@@ -31,7 +31,7 @@ export default function Container() {
             />
           </Link>
 
-          <Link href={config?.buy_url || ""}>
+          <Link href={config?.buy_url || ""} target="_blank">
             <Image
               src={"/assets/homepage/btn-buy.png"}
               width={275}
@@ -41,7 +41,7 @@ export default function Container() {
             />
           </Link>
 
-          <Link href={config?.x_coin_url || ""}>
+          <Link href={config?.x_coin_url || ""} target="_blank">
             <Image
               src={"/assets/homepage/btn-x.png"}
               width={71}
@@ -53,8 +53,8 @@ export default function Container() {
         </div>
 
         <p className="text-sm text-[#FFCE8E]">How it works</p>
-        <div className="flex gap-4">
-          <div className="flex h-[250px] w-[350px] flex-col justify-evenly border border-[#FFCE8E] bg-[#28071F] p-4">
+        <div className="flex flex-col gap-4 md:flex-row">
+          <div className="flex h-[250px] w-full flex-col justify-evenly border border-[#FFCE8E] bg-[#28071F] p-4 sm:w-[350px]">
             <div className="flex flex-col gap-4">
               <p className="text-sm text-[#FFCE8E]">01</p>
               <p className="text-xl text-[#FFCE8E]">Input Your Challenge</p>
@@ -65,7 +65,7 @@ export default function Container() {
             </p>
           </div>
 
-          <div className="flex h-[250px] w-[350px] flex-col justify-evenly border border-[#FFCE8E] bg-[#28071F] p-4">
+          <div className="flex h-[250px] w-full flex-col justify-evenly border border-[#FFCE8E] bg-[#28071F] p-4 sm:w-[350px]">
             <div className="flex flex-col gap-4">
               <p className="text-sm text-[#FFCE8E]">02</p>
               <p className="text-xl text-[#FFCE8E]">Live Queue management</p>
@@ -77,7 +77,7 @@ export default function Container() {
             </p>
           </div>
 
-          <div className="flex h-[250px] w-[350px] flex-col justify-evenly border border-[#FFCE8E] bg-[#28071F] p-4">
+          <div className="flex h-[250px] w-full flex-col justify-evenly border border-[#FFCE8E] bg-[#28071F] p-4 sm:w-[350px]">
             <div className="flex flex-col gap-4">
               <p className="text-sm text-[#FFCE8E]">03</p>
               <p className="text-xl text-[#FFCE8E]">AI at Work</p>

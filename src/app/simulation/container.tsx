@@ -129,10 +129,10 @@ export default function Container() {
   }, [nextLine, endRef]);
 
   return (
-    <main className="relative h-screen w-full px-10 py-16">
+    <main className="relative h-screen w-full px-4 py-16 md:px-10">
       <div className="flex h-full w-full flex-col gap-4 overflow-y-auto">
         <p className="text-sm text-[#FFCE8E]">V.0.1.0</p>
-        <p className="text-3xl font-bold text-[#FFCE8E]">
+        <p className="text-xl font-bold text-[#FFCE8E] md:text-3xl">
           Welcome to AI Command Center
         </p>
         <TypeAnimation

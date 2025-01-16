@@ -27,13 +27,15 @@ export default function Loading({ childern }: LoadingProps) {
 
   return (
     <main className="relative h-screen w-full">
-      <div className="absolute left-10 top-16">
+      <div className="absolute left-4 top-16 md:left-10">
         <p className="text-sm text-[#FFCE8E]">V.0.1.0</p>
       </div>
 
       <div className="absolute bottom-0 left-0 right-0 top-0 flex w-full justify-center">
-        <div className="flex h-full w-1/4 flex-col justify-center gap-4">
-          <p className="text-5xl font-bold text-[#FFCE8E]">AI COMPANY</p>
+        <div className="flex h-full w-full flex-col justify-center gap-4 px-4 md:w-1/4 md:px-0">
+          <p className="text-xl font-bold text-[#FFCE8E] md:text-5xl">
+            AI COMPANY
+          </p>
           <p className="text-sm text-[#FFCE8E]">Please wait...</p>
           <div className="w-full border-b border-dashed border-[#FFCE8E]" />
           <div className="flex w-full items-center gap-4">
