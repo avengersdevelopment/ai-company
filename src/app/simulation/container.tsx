@@ -154,19 +154,19 @@ export default function Container() {
             `The screen flickers as you enter the terminal.
             Lines of code cascade across the screen, and a smooth robotic voice greets you.
             
-            Connecting to Neuroworks's Mainframe...`,
+            Connecting to Neurowork's Mainframe...`,
             handleNextLine,
             `The screen flickers as you enter the terminal.
             Lines of code cascade across the screen, and a smooth robotic voice greets you.
             
-            Connecting to Neuroworks's Mainframe...
+            Connecting to Neurowork's Mainframe...
             
             Welcome, User.`,
             handleNextLine,
             `The screen flickers as you enter the terminal.
             Lines of code cascade across the screen, and a smooth robotic voice greets you.
             
-            Connecting to Neuroworks's Mainframe...
+            Connecting to Neurowork's Mainframe...
             
             Welcome, User.
             
@@ -187,34 +187,34 @@ export default function Container() {
             style={{ whiteSpace: "pre-line" }}
             speed={90}
             sequence={[
-              `Neuroworks: Where Artificial Intelligence Meets Seamless Efficiency.`,
+              `Neurowork: Where Artificial Intelligence Meets Seamless Efficiency.`,
               handleNextLine,
-              `Neuroworks: Where Artificial Intelligence Meets Seamless Efficiency.
+              `Neurowork: Where Artificial Intelligence Meets Seamless Efficiency.
               >  Type 'status' to view active AI tasks.`,
               handleNextLine,
-              `Neuroworks: Where Artificial Intelligence Meets Seamless Efficiency.
+              `Neurowork: Where Artificial Intelligence Meets Seamless Efficiency.
               >  Type 'status' to view active AI tasks.
               >  Type 'consult' to submit a request.`,
               handleNextLine,
-              `Neuroworks: Where Artificial Intelligence Meets Seamless Efficiency.
+              `Neurowork: Where Artificial Intelligence Meets Seamless Efficiency.
               >  Type 'status' to view active AI tasks.
               >  Type 'consult' to submit a request.
               >  Type 'queue' to check your position.`,
               handleNextLine,
-              `Neuroworks: Where Artificial Intelligence Meets Seamless Efficiency.
+              `Neurowork: Where Artificial Intelligence Meets Seamless Efficiency.
               >  Type 'status' to view active AI tasks.
               >  Type 'consult' to submit a request.
               >  Type 'queue' to check your position.
               >  Type 'help' for more commands.`,
               handleNextLine,
-              `Neuroworks: Where Artificial Intelligence Meets Seamless Efficiency.
+              `Neurowork: Where Artificial Intelligence Meets Seamless Efficiency.
               >  Type 'status' to view active AI tasks.
               >  Type 'consult' to submit a request.
               >  Type 'queue' to check your position.
               >  Type 'help' for more commands.
               >  Type 'clear' to clear commands.`,
               handleNextLine,
-              `Neuroworks: Where Artificial Intelligence Meets Seamless Efficiency.
+              `Neurowork: Where Artificial Intelligence Meets Seamless Efficiency.
               >  Type 'status' to view active AI tasks.
               >  Type 'consult' to submit a request.
               >  Type 'queue' to check your position.

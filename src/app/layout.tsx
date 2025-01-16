@@ -13,10 +13,10 @@ const fira = Fira_Code({
 });
 
 export const metadata: Metadata = {
-  title: "Neuroworks",
+  title: "Neurowork",
   description: "Fully AI-driven Consulting Firm",
   openGraph: {
-    title: "Neuroworks",
+    title: "Neurowork",
     description: "Fully AI-driven Consulting Firm",
     url: "/",
     images: [

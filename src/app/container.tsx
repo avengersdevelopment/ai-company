@@ -12,7 +12,7 @@ export default function Container() {
     <main className="relative h-full min-h-screen w-full px-4 py-16 md:h-screen md:px-10">
       <div className="flex h-full w-full flex-col justify-center gap-4">
         <p className="text-sm text-[#FFCE8E]">V.0.1.0</p>
-        <p className="text-6xl font-bold text-[#FFCE8E]">Neuroworks</p>
+        <p className="text-6xl font-bold text-[#FFCE8E]">Neurowork</p>
         <p className="w-full text-sm text-[#FFCE8E] md:w-1/2">
           We&apos;re reshaping the consulting landscape with a fully autonomous
           AI-driven workforce. Every employee is a self-learning AI agent
