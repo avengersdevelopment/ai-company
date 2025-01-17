@@ -84,11 +84,11 @@ export default function Container() {
                   handleNextLine,
                   `You already submit your company consultation
 
-                  Your Position: 31 of 31`,
+                  Your Position: 31 of 50`,
                   handleNextLine,
                   `You already submit your company consultation
 
-                  Your Position: 31 of 31
+                  Your Position: 31 of 50
                   Estimated Wait Time: 3 hours 11 minutes`,
                   handleNextLine,
                   () => setIsLoading(false),
