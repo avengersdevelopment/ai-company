@@ -1,7 +1,9 @@
 "use client";
 
+import { calculateEstimatedTime } from "@/utils/date";
 import Image from "next/image";
 import Link from "next/link";
+import { useEffect, useState } from "react";
 
 interface StatusItem {
   id: number;
@@ -123,7 +125,19 @@ const statusItems: StatusItem[] = [
   },
 ];
 
-export default function Container() {
+export interface Consultation {
+  id: number;
+  name: string;
+  description: string;
+  client: string;
+  ended_at: string;
+}
+
+interface ContainerProps {
+  consultations: Consultation[];
+}
+
+export default function Container({ consultations }: ContainerProps) {
   return (
     <main className="relative h-screen w-full px-4 py-16 md:px-10">
       <Image
@@ -177,22 +191,24 @@ export default function Container() {
                 </tr>
               </thead>
               <tbody>
-                {statusItems.map((e) => (
+                {consultations?.map((e, index) => (
                   <tr
                     key={e.id}
                     className="border border-[#FFCE8E] text-sm text-[#FDB479]"
                   >
-                    <td className="border-r border-[#FFCE8E] p-4">{e.type}</td>
+                    <td className="border-r border-[#FFCE8E] p-4">{e.name}</td>
                     <td className="border-r border-[#FFCE8E] p-4">
                       {e.description}
                     </td>
                     <td className="border-r border-[#FFCE8E] p-4">
-                      {e.company}
+                      {e.client}
                     </td>
                     <td className="border-r border-[#FFCE8E] p-4">
-                      {e.estimated}
+                      ~{calculateEstimatedTime(e.ended_at)}
                     </td>
-                    <td className="p-4">{e.status}</td>
+                    <td className="p-4">
+                      {index === 0 ? "Active" : "In Queue"}
+                    </td>
                   </tr>
                 ))}
               </tbody>
