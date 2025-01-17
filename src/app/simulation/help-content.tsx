@@ -15,34 +15,34 @@ export default function HelpContent({
       speed={90}
       sequence={[
         onStart,
-        `Neurowork: Where Artificial Intelligence Meets Seamless Efficiency.`,
+        `Neuroworks: Where Artificial Intelligence Meets Seamless Efficiency.`,
         onNextLine,
-        `Neurowork: Where Artificial Intelligence Meets Seamless Efficiency.
+        `Neuroworks: Where Artificial Intelligence Meets Seamless Efficiency.
               >  Type 'status' to view active AI tasks.`,
         onNextLine,
-        `Neurowork: Where Artificial Intelligence Meets Seamless Efficiency.
+        `Neuroworks: Where Artificial Intelligence Meets Seamless Efficiency.
               >  Type 'status' to view active AI tasks.
               >  Type 'consult' to submit a request.`,
         onNextLine,
-        `Neurowork: Where Artificial Intelligence Meets Seamless Efficiency.
+        `Neuroworks: Where Artificial Intelligence Meets Seamless Efficiency.
               >  Type 'status' to view active AI tasks.
               >  Type 'consult' to submit a request.
               >  Type 'queue' to check your position.`,
         onNextLine,
-        `Neurowork: Where Artificial Intelligence Meets Seamless Efficiency.
+        `Neuroworks: Where Artificial Intelligence Meets Seamless Efficiency.
               >  Type 'status' to view active AI tasks.
               >  Type 'consult' to submit a request.
               >  Type 'queue' to check your position.
               >  Type 'help' for more commands.`,
         onNextLine,
-        `Neurowork: Where Artificial Intelligence Meets Seamless Efficiency.
+        `Neuroworks: Where Artificial Intelligence Meets Seamless Efficiency.
               >  Type 'status' to view active AI tasks.
               >  Type 'consult' to submit a request.
               >  Type 'queue' to check your position.
               >  Type 'help' for more commands.
               >  Type 'clear' to clear commands.`,
         onNextLine,
-        `Neurowork: Where Artificial Intelligence Meets Seamless Efficiency.
+        `Neuroworks: Where Artificial Intelligence Meets Seamless Efficiency.
               >  Type 'status' to view active AI tasks.
               >  Type 'consult' to submit a request.
               >  Type 'queue' to check your position.

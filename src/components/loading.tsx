@@ -34,7 +34,7 @@ export default function Loading({ childern }: LoadingProps) {
       <div className="absolute bottom-0 left-0 right-0 top-0 flex w-full justify-center">
         <div className="flex h-full w-full flex-col justify-center gap-4 px-4 md:w-1/4 md:px-0">
           <p className="text-xl font-bold text-[#FFCE8E] md:text-5xl">
-            Neurowork
+            Neuroworks
           </p>
           <p className="text-sm text-[#FFCE8E]">Please wait...</p>
           <div className="w-full border-b border-dashed border-[#FFCE8E]" />

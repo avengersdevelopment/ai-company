@@ -10,10 +10,10 @@ export default function Container() {
 
   return (
     <main className="relative h-full min-h-screen w-full px-4 py-16 md:h-screen md:px-10">
-      <div className="flex h-full w-full flex-col justify-center gap-4">
+      <div className="flex h-full w-full flex-col items-center justify-center gap-4">
         <p className="text-sm text-[#FFCE8E]">V.0.1.0</p>
-        <p className="text-6xl font-bold text-[#FFCE8E]">Neurowork</p>
-        <p className="w-full text-sm text-[#FFCE8E] md:w-1/2">
+        <p className="text-6xl font-bold text-[#FFCE8E]">Neuroworks</p>
+        <p className="w-full text-center text-sm text-[#FFCE8E] md:w-1/2">
           We&apos;re reshaping the consulting landscape with a fully autonomous
           AI-driven workforce. Every employee is a self-learning AI agent
           seamlessly integrated across finance, marketing, and strategy. No
@@ -21,7 +21,33 @@ export default function Container() {
           insights, and transformative results that redefine precision.
         </p>
 
-        <div className="flex flex-col gap-4 md:flex-row">
+        <div className="flex flex-col items-center gap-2">
+          <p className="font-bold text-[#FFCE8E]">Our Works:</p>
+          <div className="flex flex-col items-center gap-1 md:flex-row md:gap-4">
+            <a href="/assets/pdf/future-of-entertainment.pdf" target="_blank">
+              <p className="text-sm text-[#FFCE8E] underline">
+                Future Of Entertainment
+              </p>
+            </a>
+
+            <a
+              href="/assets/pdf/on-demand-and-subscription.pdf"
+              target="_blank"
+            >
+              <p className="text-sm text-[#FFCE8E] underline">
+                On Demand And Subscription
+              </p>
+            </a>
+
+            <a href="/assets/pdf/up-to-the-future.pdf" target="_blank">
+              <p className="text-sm text-[#FFCE8E] underline">
+                Up To The Future
+              </p>
+            </a>
+          </div>
+        </div>
+
+        <div className="flex flex-col items-center gap-4 md:flex-row">
           <Link href="/simulation">
             <Image
               src={"/assets/homepage/btn-simulation.png"}
@@ -32,28 +58,30 @@ export default function Container() {
             />
           </Link>
 
-          <Link href={config?.buy_url || ""} target="_blank">
-            <Image
-              src={"/assets/homepage/btn-buy.png"}
-              width={275}
-              height={55}
-              alt=""
-              className="h-[35px] w-auto hover:animate-shake"
-            />
-          </Link>
+          <div className="flex flex-row gap-4">
+            <Link href={config?.buy_url || ""} target="_blank">
+              <Image
+                src={"/assets/homepage/btn-buy.png"}
+                width={275}
+                height={55}
+                alt=""
+                className="h-[35px] w-auto hover:animate-shake"
+              />
+            </Link>
 
-          <Link href={config?.x_coin_url || ""} target="_blank">
-            <Image
-              src={"/assets/homepage/btn-x.png"}
-              width={71}
-              height={55}
-              alt=""
-              className="h-[35px] w-auto hover:animate-shake"
-            />
-          </Link>
+            <Link href={config?.x_coin_url || ""} target="_blank">
+              <Image
+                src={"/assets/homepage/btn-x.png"}
+                width={71}
+                height={55}
+                alt=""
+                className="h-[35px] w-auto hover:animate-shake"
+              />
+            </Link>
+          </div>
         </div>
 
-        <p className="text-sm text-[#FFCE8E]">How it works</p>
+        <p className="text-sm text-[#FFCE8E]">How it works: </p>
         <div className="flex flex-col gap-4 md:flex-row">
           <div className="flex h-[250px] w-full flex-col justify-evenly border border-[#FFCE8E] bg-[#28071F] p-4 sm:w-[350px]">
             <div className="flex flex-col gap-4">

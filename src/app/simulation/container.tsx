@@ -8,6 +8,7 @@ import QueueContent from "./queue-content";
 import ConsultContent from "./consult-content";
 import DefaultContent from "./default-content";
 import { useRouter } from "next/navigation";
+import { useUserStore } from "@/store/user-store";
 
 export interface ContentProps {
   onStart: () => void;
@@ -18,6 +19,7 @@ export interface ContentProps {
 export default function Container() {
   const router = useRouter();
   const endRef = useRef<HTMLDivElement>(null);
+  const { companyName } = useUserStore();
 
   const [command, setCommand] = useState<string>("");
   const [contents, setContents] = useState<JSX.Element[]>([]);
@@ -49,22 +51,53 @@ export default function Container() {
         }
         case "consult": {
           setCommand("");
-          setContents((prev) => [
-            ...prev,
-            Command,
-            <ConsultContent
-              key={`consult ${contents.length}`}
-              onStart={() => {
-                setShowInput(false);
-                setIsLoading(true);
-              }}
-              onDone={() => {
-                setShowInput(true);
-                setIsLoading(false);
-              }}
-              onNextLine={handleNextLine}
-            />,
-          ]);
+
+          if (!companyName) {
+            setContents((prev) => [
+              ...prev,
+              Command,
+              <ConsultContent
+                key={`consult ${contents.length}`}
+                onStart={() => {
+                  setShowInput(false);
+                  setIsLoading(true);
+                }}
+                onDone={() => {
+                  setShowInput(true);
+                  setIsLoading(false);
+                }}
+                onNextLine={handleNextLine}
+              />,
+            ]);
+          } else {
+            setContents((prev) => [
+              ...prev,
+              Command,
+              <TypeAnimation
+                key={prev.length}
+                className="text-sm text-[#FFCE8E]"
+                style={{ whiteSpace: "pre-line" }}
+                speed={90}
+                sequence={[
+                  () => setIsLoading(true),
+                  `You already submit your company consultation`,
+                  handleNextLine,
+                  `You already submit your company consultation
+
+                  Your Position: 18 of 18`,
+                  handleNextLine,
+                  `You already submit your company consultation
+
+                  Your Position: 18 of 18
+                  Estimated Wait Time: 15 minutes`,
+                  handleNextLine,
+                  () => setIsLoading(false),
+                ]}
+                wrapper="p"
+                cursor={false}
+              />,
+            ]);
+          }
           return;
         }
         case "queue": {
@@ -135,7 +168,7 @@ export default function Container() {
       <div className="flex h-full w-full flex-col gap-4 overflow-y-auto">
         <p className="text-sm text-[#FFCE8E]">V.0.1.0</p>
         <p className="text-xl font-bold text-[#FFCE8E] md:text-3xl">
-          Welcome to Neurowork&apos;s Commands Center
+          Welcome to Neuroworks&apos;s Commands Center
         </p>
         <TypeAnimation
           className="text-sm text-[#FFCE8E]"
@@ -146,31 +179,40 @@ export default function Container() {
               setIsLoading(true);
             },
             1000,
-            `The screen flickers as you enter the terminal.`,
+            `Booting Neurowork Systems...`,
             handleNextLine,
-            `The screen flickers as you enter the terminal.
-            Lines of code cascade across the screen, and a smooth robotic voice greets you.`,
+            `Booting Neurowork Systems...
+
+            Initializing protocols...`,
             handleNextLine,
-            `The screen flickers as you enter the terminal.
-            Lines of code cascade across the screen, and a smooth robotic voice greets you.
+            `Booting Neurowork Systems...
+
+            Initializing protocols...
+            Establishing secure connection...`,
+            handleNextLine,
+            `Booting Neurowork Systems...
+
+            Initializing protocols...
+            Establishing secure connection...
+            Loading consulting framework...`,
+            handleNextLine,
+            `Booting Neurowork Systems...
+
+            Initializing protocols...
+            Establishing secure connection...
+            Loading consulting framework...
             
-            Connecting to Neurowork's Mainframe...`,
+            Connecting to Neuroworks's Mainframe...`,
             handleNextLine,
-            `The screen flickers as you enter the terminal.
-            Lines of code cascade across the screen, and a smooth robotic voice greets you.
+            `Booting Neurowork Systems...
+
+            Initializing protocols...
+            Establishing secure connection...
+            Loading consulting framework...
             
-            Connecting to Neurowork's Mainframe...
+            Connecting to Neuroworks's Mainframe...
             
             Welcome, User.`,
-            handleNextLine,
-            `The screen flickers as you enter the terminal.
-            Lines of code cascade across the screen, and a smooth robotic voice greets you.
-            
-            Connecting to Neurowork's Mainframe...
-            
-            Welcome, User.
-            
-            Initializing your consultation space...`,
             handleNextLine,
             1000,
             () => {
@@ -187,34 +229,34 @@ export default function Container() {
             style={{ whiteSpace: "pre-line" }}
             speed={90}
             sequence={[
-              `Neurowork: Where Artificial Intelligence Meets Seamless Efficiency.`,
+              `Neuroworks: Where Artificial Intelligence Meets Seamless Efficiency.`,
               handleNextLine,
-              `Neurowork: Where Artificial Intelligence Meets Seamless Efficiency.
+              `Neuroworks: Where Artificial Intelligence Meets Seamless Efficiency.
               >  Type 'status' to view active AI tasks.`,
               handleNextLine,
-              `Neurowork: Where Artificial Intelligence Meets Seamless Efficiency.
+              `Neuroworks: Where Artificial Intelligence Meets Seamless Efficiency.
               >  Type 'status' to view active AI tasks.
               >  Type 'consult' to submit a request.`,
               handleNextLine,
-              `Neurowork: Where Artificial Intelligence Meets Seamless Efficiency.
+              `Neuroworks: Where Artificial Intelligence Meets Seamless Efficiency.
               >  Type 'status' to view active AI tasks.
               >  Type 'consult' to submit a request.
               >  Type 'queue' to check your position.`,
               handleNextLine,
-              `Neurowork: Where Artificial Intelligence Meets Seamless Efficiency.
+              `Neuroworks: Where Artificial Intelligence Meets Seamless Efficiency.
               >  Type 'status' to view active AI tasks.
               >  Type 'consult' to submit a request.
               >  Type 'queue' to check your position.
               >  Type 'help' for more commands.`,
               handleNextLine,
-              `Neurowork: Where Artificial Intelligence Meets Seamless Efficiency.
+              `Neuroworks: Where Artificial Intelligence Meets Seamless Efficiency.
               >  Type 'status' to view active AI tasks.
               >  Type 'consult' to submit a request.
               >  Type 'queue' to check your position.
               >  Type 'help' for more commands.
               >  Type 'clear' to clear commands.`,
               handleNextLine,
-              `Neurowork: Where Artificial Intelligence Meets Seamless Efficiency.
+              `Neuroworks: Where Artificial Intelligence Meets Seamless Efficiency.
               >  Type 'status' to view active AI tasks.
               >  Type 'consult' to submit a request.
               >  Type 'queue' to check your position.
