@@ -283,14 +283,14 @@ export default function ConsultContent({
               
               Processing data...
               
-              Your position: 18 of 18`,
+              Your position: 31 of 31`,
               onNextLine,
               `Thank you for your input.
               
               Processing data...
               
-              Your position: 18 of 18
-              Estimated wait time: 15 minutes`,
+              Your position: 31 of 31
+              Estimated wait time: 3 hours 11 minutes`,
               onNextLine,
               1000,
               onNextLine,

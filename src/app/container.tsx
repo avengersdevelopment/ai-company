@@ -1,16 +1,25 @@
 "use client";
 
 import { useConfig } from "@/store/config";
+import { useUserStore } from "@/store/user-store";
 import Image from "next/image";
 import Link from "next/link";
+import { useEffect } from "react";
 
 export default function Container() {
   const store = useConfig();
   const config = store((state) => state.config);
+  const { dateAccess, setDateAccess } = useUserStore();
+
+  useEffect(() => {
+    if (!dateAccess) {
+      setDateAccess(new Date().toLocaleString());
+    }
+  }, [dateAccess, setDateAccess]);
 
   return (
     <main className="relative h-full min-h-screen w-full px-4 py-16 md:h-screen md:px-10">
-      <div className="flex h-full w-full flex-col md:items-center items-start justify-center gap-4">
+      <div className="flex h-full w-full flex-col items-start justify-center gap-4 md:items-center">
         <p className="text-sm text-[#FFCE8E]">V.0.1.0</p>
         <p className="text-6xl font-bold text-[#FFCE8E]">Neuroworks</p>
         <p className="w-full text-center text-sm text-[#FFCE8E] md:w-1/2">

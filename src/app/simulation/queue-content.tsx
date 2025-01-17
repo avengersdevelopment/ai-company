@@ -40,7 +40,7 @@ export default function QueueContent({
           style={{ whiteSpace: "pre-line" }}
           speed={90}
           sequence={[
-            `> Total Companies in Queue: ${companyName ? "18" : "17"}`,
+            `> Total Companies in Queue: ${companyName ? "31" : "30"}`,
             onNextLine,
             1000,
             () => {
@@ -58,210 +58,564 @@ export default function QueueContent({
           style={{ whiteSpace: "pre-line" }}
           speed={90}
           sequence={[
-            `1.	ArcTech Solutions`,
+            `1.	YOLO Wizard`,
             onNextLine,
-            `1.	ArcTech Solutions
-              2.	Quantum Forge`,
+            `1.	YOLO Wizard
+            2.	BagFlip420`,
             onNextLine,
-            `1.	ArcTech Solutions
-              2.	Quantum Forge
-              3.	Stratos`,
+            `1.	YOLO Wizard
+            2.	BagFlip420
+            3.	lambo_rush`,
             onNextLine,
-            `1.	ArcTech Solutions
-              2.	Quantum Forge
-              3.	Stratos
-              4.	Orionix`,
+            `1.	YOLO Wizard
+            2.	BagFlip420
+            3.	lambo_rush
+            4.	PumpChaserX`,
             onNextLine,
-            `1.	ArcTech Solutions
-              2.	Quantum Forge
-              3.	Stratos
-              4.	Orionix
-              5.	flux innovations`,
+            `1.	YOLO Wizard
+            2.	BagFlip420
+            3.	lambo_rush
+            4.	PumpChaserX
+            5.	MOON-Rider69`,
             onNextLine,
-            `1.	ArcTech Solutions
-              2.	Quantum Forge
-              3.	Stratos
-              4.	Orionix
-              5.	flux innovations
-              6.	CoreByte Systems`,
+            `1.	YOLO Wizard
+            2.	BagFlip420
+            3.	lambo_rush
+            4.	PumpChaserX
+            5.	MOON-Rider69
+            6.	Gainsy_BOI`,
             onNextLine,
-            `1.	ArcTech Solutions
-              2.	Quantum Forge
-              3.	Stratos
-              4.	Orionix
-              5.	flux innovations
-              6.	CoreByte Systems
-              7.	Nexum AI`,
+            `1.	YOLO Wizard
+            2.	BagFlip420
+            3.	lambo_rush
+            4.	PumpChaserX
+            5.	MOON-Rider69
+            6.	Gainsy_BOI
+            7.	DegenXpress!`,
             onNextLine,
-            `1.	ArcTech Solutions
-              2.	Quantum Forge
-              3.	Stratos
-              4.	Orionix
-              5.	flux innovations
-              6.	CoreByte Systems
-              7.	Nexum AI
-              8.	aeris lab`,
+            `1.	YOLO Wizard
+            2.	BagFlip420
+            3.	lambo_rush
+            4.	PumpChaserX
+            5.	MOON-Rider69
+            6.	Gainsy_BOI
+            7.	DegenXpress!
+            8.	HodL-R0CKET`,
             onNextLine,
-            `1.	ArcTech Solutions
-              2.	Quantum Forge
-              3.	Stratos
-              4.	Orionix
-              5.	flux innovations
-              6.	CoreByte Systems
-              7.	Nexum AI
-              8.	aeris lab
-              9.	NeuralSphere`,
+            `1.	YOLO Wizard
+            2.	BagFlip420
+            3.	lambo_rush
+            4.	PumpChaserX
+            5.	MOON-Rider69
+            6.	Gainsy_BOI
+            7.	DegenXpress!
+            8.	HodL-R0CKET
+            9.	BigStack$999`,
             onNextLine,
-            `1.	ArcTech Solutions
-              2.	Quantum Forge
-              3.	Stratos
-              4.	Orionix
-              5.	flux innovations
-              6.	CoreByte Systems
-              7.	Nexum AI
-              8.	aeris lab
-              9.	NeuralSphere
-              10.	Celestix`,
+            `1.	YOLO Wizard
+            2.	BagFlip420
+            3.	lambo_rush
+            4.	PumpChaserX
+            5.	MOON-Rider69
+            6.	Gainsy_BOI
+            7.	DegenXpress!
+            8.	HodL-R0CKET
+            9.	BigStack$999
+            10.	flipper CHAD`,
             onNextLine,
-            `1.	ArcTech Solutions
-              2.	Quantum Forge
-              3.	Stratos
-              4.	Orionix
-              5.	flux innovations
-              6.	CoreByte Systems
-              7.	Nexum AI
-              8.	aeris lab
-              9.	NeuralSphere
-              10.	Celestix
-              11.	TerraGrid`,
+            `1.	YOLO Wizard
+            2.	BagFlip420
+            3.	lambo_rush
+            4.	PumpChaserX
+            5.	MOON-Rider69
+            6.	Gainsy_BOI
+            7.	DegenXpress!
+            8.	HodL-R0CKET
+            9.	BigStack$999
+            10.	flipper CHAD
+            11.	PumpTh!s`,
             onNextLine,
-            `1.	ArcTech Solutions
-              2.	Quantum Forge
-              3.	Stratos
-              4.	Orionix
-              5.	flux innovations
-              6.	CoreByte Systems
-              7.	Nexum AI
-              8.	aeris lab
-              9.	NeuralSphere
-              10.	Celestix
-              11.	TerraGrid`,
+            `1.	YOLO Wizard
+            2.	BagFlip420
+            3.	lambo_rush
+            4.	PumpChaserX
+            5.	MOON-Rider69
+            6.	Gainsy_BOI
+            7.	DegenXpress!
+            8.	HodL-R0CKET
+            9.	BigStack$999
+            10.	flipper CHAD
+            11.	PumpTh!s
+            12.	Dripn$hred88`,
             onNextLine,
-            `1.	ArcTech Solutions
-              2.	Quantum Forge
-              3.	Stratos
-              4.	Orionix
-              5.	flux innovations
-              6.	CoreByte Systems
-              7.	Nexum AI
-              8.	aeris lab
-              9.	NeuralSphere
-              10.	Celestix
-              11.	TerraGrid
-              12.	ZenithCore
-              13.	ByteCraft`,
+            `1.	YOLO Wizard
+            2.	BagFlip420
+            3.	lambo_rush
+            4.	PumpChaserX
+            5.	MOON-Rider69
+            6.	Gainsy_BOI
+            7.	DegenXpress!
+            8.	HodL-R0CKET
+            9.	BigStack$999
+            10.	flipper CHAD
+            11.	PumpTh!s
+            12.	Dripn$hred88
+            13.	ToTheBagZ!`,
             onNextLine,
-            `1.	ArcTech Solutions
-              2.	Quantum Forge
-              3.	Stratos
-              4.	Orionix
-              5.	flux innovations
-              6.	CoreByte Systems
-              7.	Nexum AI
-              8.	aeris lab
-              9.	NeuralSphere
-              10.	Celestix
-              11.	TerraGrid
-              12.	ZenithCore
-              13.	ByteCraft
-              14.	NovaFusion`,
+            `1.	YOLO Wizard
+            2.	BagFlip420
+            3.	lambo_rush
+            4.	PumpChaserX
+            5.	MOON-Rider69
+            6.	Gainsy_BOI
+            7.	DegenXpress!
+            8.	HodL-R0CKET
+            9.	BigStack$999
+            10.	flipper CHAD
+            11.	PumpTh!s
+            12.	Dripn$hred88
+            13.	ToTheBagZ!
+            14.	D!P_snip3R`,
             onNextLine,
-            `1.	ArcTech Solutions
-              2.	Quantum Forge
-              3.	Stratos
-              4.	Orionix
-              5.	flux innovations
-              6.	CoreByte Systems
-              7.	Nexum AI
-              8.	aeris lab
-              9.	NeuralSphere
-              10.	Celestix
-              11.	TerraGrid
-              12.	ZenithCore
-              13.	ByteCraft
-              14.	NovaFusion
-              15.	Polaris Nexus`,
+            `1.	YOLO Wizard
+            2.	BagFlip420
+            3.	lambo_rush
+            4.	PumpChaserX
+            5.	MOON-Rider69
+            6.	Gainsy_BOI
+            7.	DegenXpress!
+            8.	HodL-R0CKET
+            9.	BigStack$999
+            10.	flipper CHAD
+            11.	PumpTh!s
+            12.	Dripn$hred88
+            13.	ToTheBagZ!
+            14.	D!P_snip3R
+            15.	R0ckETHawk`,
             onNextLine,
-            `1.	ArcTech Solutions
-              2.	Quantum Forge
-              3.	Stratos
-              4.	Orionix
-              5.	flux innovations
-              6.	CoreByte Systems
-              7.	Nexum AI
-              8.	aeris lab
-              9.	NeuralSphere
-              10.	Celestix
-              11.	TerraGrid
-              12.	ZenithCore
-              13.	ByteCraft
-              14.	NovaFusion
-              15.	Polaris Nexus
-              16.	infinicode`,
+            `1.	YOLO Wizard
+            2.	BagFlip420
+            3.	lambo_rush
+            4.	PumpChaserX
+            5.	MOON-Rider69
+            6.	Gainsy_BOI
+            7.	DegenXpress!
+            8.	HodL-R0CKET
+            9.	BigStack$999
+            10.	flipper CHAD
+            11.	PumpTh!s
+            12.	Dripn$hred88
+            13.	ToTheBagZ!
+            14.	D!P_snip3R
+            15.	R0ckETHawk
+            16.	cashFLOW69`,
             onNextLine,
-            `1.	ArcTech Solutions
-              2.	Quantum Forge
-              3.	Stratos
-              4.	Orionix
-              5.	flux innovations
-              6.	CoreByte Systems
-              7.	Nexum AI
-              8.	aeris lab
-              9.	NeuralSphere
-              10.	Celestix
-              11.	TerraGrid
-              12.	ZenithCore
-              13.	ByteCraft
-              14.	NovaFusion
-              15.	Polaris Nexus
-              16.	infinicode
-              17.	Lumora`,
+            `1.	YOLO Wizard
+            2.	BagFlip420
+            3.	lambo_rush
+            4.	PumpChaserX
+            5.	MOON-Rider69
+            6.	Gainsy_BOI
+            7.	DegenXpress!
+            8.	HodL-R0CKET
+            9.	BigStack$999
+            10.	flipper CHAD
+            11.	PumpTh!s
+            12.	Dripn$hred88
+            13.	ToTheBagZ!
+            14.	D!P_snip3R
+            15.	R0ckETHawk
+            16.	cashFLOW69
+            17.	0xProfitZ`,
+            onNextLine,
+            `1.	YOLO Wizard
+            2.	BagFlip420
+            3.	lambo_rush
+            4.	PumpChaserX
+            5.	MOON-Rider69
+            6.	Gainsy_BOI
+            7.	DegenXpress!
+            8.	HodL-R0CKET
+            9.	BigStack$999
+            10.	flipper CHAD
+            11.	PumpTh!s
+            12.	Dripn$hred88
+            13.	ToTheBagZ!
+            14.	D!P_snip3R
+            15.	R0ckETHawk
+            16.	cashFLOW69
+            17.	0xProfitZ
+            18.	Sn1pER_Rug`,
+            onNextLine,
+            `1.	YOLO Wizard
+            2.	BagFlip420
+            3.	lambo_rush
+            4.	PumpChaserX
+            5.	MOON-Rider69
+            6.	Gainsy_BOI
+            7.	DegenXpress!
+            8.	HodL-R0CKET
+            9.	BigStack$999
+            10.	flipper CHAD
+            11.	PumpTh!s
+            12.	Dripn$hred88
+            13.	ToTheBagZ!
+            14.	D!P_snip3R
+            15.	R0ckETHawk
+            16.	cashFLOW69
+            17.	0xProfitZ
+            18.	Sn1pER_Rug
+            19.	DIADMOND Flip$`,
+            onNextLine,
+            `1.	YOLO Wizard
+            2.	BagFlip420
+            3.	lambo_rush
+            4.	PumpChaserX
+            5.	MOON-Rider69
+            6.	Gainsy_BOI
+            7.	DegenXpress!
+            8.	HodL-R0CKET
+            9.	BigStack$999
+            10.	flipper CHAD
+            11.	PumpTh!s
+            12.	Dripn$hred88
+            13.	ToTheBagZ!
+            14.	D!P_snip3R
+            15.	R0ckETHawk
+            16.	cashFLOW69
+            17.	0xProfitZ
+            18.	Sn1pER_Rug
+            19.	DIADMOND Flip$
+            20.	gasKilla77`,
+            onNextLine,
+            `1.	YOLO Wizard
+            2.	BagFlip420
+            3.	lambo_rush
+            4.	PumpChaserX
+            5.	MOON-Rider69
+            6.	Gainsy_BOI
+            7.	DegenXpress!
+            8.	HodL-R0CKET
+            9.	BigStack$999
+            10.	flipper CHAD
+            11.	PumpTh!s
+            12.	Dripn$hred88
+            13.	ToTheBagZ!
+            14.	D!P_snip3R
+            15.	R0ckETHawk
+            16.	cashFLOW69
+            17.	0xProfitZ
+            18.	Sn1pER_Rug
+            19.	DIADMOND Flip$
+            20.	gasKilla77
+            21.	stack & send`,
+            onNextLine,
+            `1.	YOLO Wizard
+            2.	BagFlip420
+            3.	lambo_rush
+            4.	PumpChaserX
+            5.	MOON-Rider69
+            6.	Gainsy_BOI
+            7.	DegenXpress!
+            8.	HodL-R0CKET
+            9.	BigStack$999
+            10.	flipper CHAD
+            11.	PumpTh!s
+            12.	Dripn$hred88
+            13.	ToTheBagZ!
+            14.	D!P_snip3R
+            15.	R0ckETHawk
+            16.	cashFLOW69
+            17.	0xProfitZ
+            18.	Sn1pER_Rug
+            19.	DIADMOND Flip$
+            20.	gasKilla77
+            21.	stack & send
+            22.	MoonGainz42`,
+            onNextLine,
+            `1.	YOLO Wizard
+            2.	BagFlip420
+            3.	lambo_rush
+            4.	PumpChaserX
+            5.	MOON-Rider69
+            6.	Gainsy_BOI
+            7.	DegenXpress!
+            8.	HodL-R0CKET
+            9.	BigStack$999
+            10.	flipper CHAD
+            11.	PumpTh!s
+            12.	Dripn$hred88
+            13.	ToTheBagZ!
+            14.	D!P_snip3R
+            15.	R0ckETHawk
+            16.	cashFLOW69
+            17.	0xProfitZ
+            18.	Sn1pER_Rug
+            19.	DIADMOND Flip$
+            20.	gasKilla77
+            21.	stack & send
+            22.	MoonGainz42
+            23.	WEN_R0CKET`,
+            onNextLine,
+            `1.	YOLO Wizard
+            2.	BagFlip420
+            3.	lambo_rush
+            4.	PumpChaserX
+            5.	MOON-Rider69
+            6.	Gainsy_BOI
+            7.	DegenXpress!
+            8.	HodL-R0CKET
+            9.	BigStack$999
+            10.	flipper CHAD
+            11.	PumpTh!s
+            12.	Dripn$hred88
+            13.	ToTheBagZ!
+            14.	D!P_snip3R
+            15.	R0ckETHawk
+            16.	cashFLOW69
+            17.	0xProfitZ
+            18.	Sn1pER_Rug
+            19.	DIADMOND Flip$
+            20.	gasKilla77
+            21.	stack & send
+            22.	MoonGainz42
+            23.	WEN_R0CKET
+            24.	BoostnBagz`,
+            onNextLine,
+            `1.	YOLO Wizard
+            2.	BagFlip420
+            3.	lambo_rush
+            4.	PumpChaserX
+            5.	MOON-Rider69
+            6.	Gainsy_BOI
+            7.	DegenXpress!
+            8.	HodL-R0CKET
+            9.	BigStack$999
+            10.	flipper CHAD
+            11.	PumpTh!s
+            12.	Dripn$hred88
+            13.	ToTheBagZ!
+            14.	D!P_snip3R
+            15.	R0ckETHawk
+            16.	cashFLOW69
+            17.	0xProfitZ
+            18.	Sn1pER_Rug
+            19.	DIADMOND Flip$
+            20.	gasKilla77
+            21.	stack & send
+            22.	MoonGainz42
+            23.	WEN_R0CKET
+            24.	BoostnBagz
+            25.	crypto LORDX`,
+            onNextLine,
+            `1.	YOLO Wizard
+            2.	BagFlip420
+            3.	lambo_rush
+            4.	PumpChaserX
+            5.	MOON-Rider69
+            6.	Gainsy_BOI
+            7.	DegenXpress!
+            8.	HodL-R0CKET
+            9.	BigStack$999
+            10.	flipper CHAD
+            11.	PumpTh!s
+            12.	Dripn$hred88
+            13.	ToTheBagZ!
+            14.	D!P_snip3R
+            15.	R0ckETHawk
+            16.	cashFLOW69
+            17.	0xProfitZ
+            18.	Sn1pER_Rug
+            19.	DIADMOND Flip$
+            20.	gasKilla77
+            21.	stack & send
+            22.	MoonGainz42
+            23.	WEN_R0CKET
+            24.	BoostnBagz
+            25.	crypto LORDX
+            26.	Bulls Eyez!`,
+            onNextLine,
+            `1.	YOLO Wizard
+            2.	BagFlip420
+            3.	lambo_rush
+            4.	PumpChaserX
+            5.	MOON-Rider69
+            6.	Gainsy_BOI
+            7.	DegenXpress!
+            8.	HodL-R0CKET
+            9.	BigStack$999
+            10.	flipper CHAD
+            11.	PumpTh!s
+            12.	Dripn$hred88
+            13.	ToTheBagZ!
+            14.	D!P_snip3R
+            15.	R0ckETHawk
+            16.	cashFLOW69
+            17.	0xProfitZ
+            18.	Sn1pER_Rug
+            19.	DIADMOND Flip$
+            20.	gasKilla77
+            21.	stack & send
+            22.	MoonGainz42
+            23.	WEN_R0CKET
+            24.	BoostnBagz
+            25.	crypto LORDX
+            26.	Bulls Eyez!
+            27.	Cr4sh Monk3y`,
+            onNextLine,
+            `1.	YOLO Wizard
+            2.	BagFlip420
+            3.	lambo_rush
+            4.	PumpChaserX
+            5.	MOON-Rider69
+            6.	Gainsy_BOI
+            7.	DegenXpress!
+            8.	HodL-R0CKET
+            9.	BigStack$999
+            10.	flipper CHAD
+            11.	PumpTh!s
+            12.	Dripn$hred88
+            13.	ToTheBagZ!
+            14.	D!P_snip3R
+            15.	R0ckETHawk
+            16.	cashFLOW69
+            17.	0xProfitZ
+            18.	Sn1pER_Rug
+            19.	DIADMOND Flip$
+            20.	gasKilla77
+            21.	stack & send
+            22.	MoonGainz42
+            23.	WEN_R0CKET
+            24.	BoostnBagz
+            25.	crypto LORDX
+            26.	Bulls Eyez!
+            27.	Cr4sh Monk3y
+            28.	Moon St0nker`,
+            onNextLine,
+            `1.	YOLO Wizard
+            2.	BagFlip420
+            3.	lambo_rush
+            4.	PumpChaserX
+            5.	MOON-Rider69
+            6.	Gainsy_BOI
+            7.	DegenXpress!
+            8.	HodL-R0CKET
+            9.	BigStack$999
+            10.	flipper CHAD
+            11.	PumpTh!s
+            12.	Dripn$hred88
+            13.	ToTheBagZ!
+            14.	D!P_snip3R
+            15.	R0ckETHawk
+            16.	cashFLOW69
+            17.	0xProfitZ
+            18.	Sn1pER_Rug
+            19.	DIADMOND Flip$
+            20.	gasKilla77
+            21.	stack & send
+            22.	MoonGainz42
+            23.	WEN_R0CKET
+            24.	BoostnBagz
+            25.	crypto LORDX
+            26.	Bulls Eyez!
+            27.	Cr4sh Monk3y
+            28.	Moon St0nker
+            29.	BAG_LaunchX`,
+            onNextLine,
+            `1.	YOLO Wizard
+            2.	BagFlip420
+            3.	lambo_rush
+            4.	PumpChaserX
+            5.	MOON-Rider69
+            6.	Gainsy_BOI
+            7.	DegenXpress!
+            8.	HodL-R0CKET
+            9.	BigStack$999
+            10.	flipper CHAD
+            11.	PumpTh!s
+            12.	Dripn$hred88
+            13.	ToTheBagZ!
+            14.	D!P_snip3R
+            15.	R0ckETHawk
+            16.	cashFLOW69
+            17.	0xProfitZ
+            18.	Sn1pER_Rug
+            19.	DIADMOND Flip$
+            20.	gasKilla77
+            21.	stack & send
+            22.	MoonGainz42
+            23.	WEN_R0CKET
+            24.	BoostnBagz
+            25.	crypto LORDX
+            26.	Bulls Eyez!
+            27.	Cr4sh Monk3y
+            28.	Moon St0nker
+            29.	BAG_LaunchX
+            30.	Degen Titan!`,
+            onNextLine,
             companyName
-              ? `1.	ArcTech Solutions
-              2.	Quantum Forge
-              3.	Stratos
-              4.	Orionix
-              5.	flux innovations
-              6.	CoreByte Systems
-              7.	Nexum AI
-              8.	aeris lab
-              9.	NeuralSphere
-              10.	Celestix
-              11.	TerraGrid
-              12.	ZenithCore
-              13.	ByteCraft
-              14.	NovaFusion
-              15.	Polaris Nexus
-              16.	infinicode
-              17.	Lumora
-            18. ${companyName}`
-              : `1.	ArcTech Solutions
-              2.	Quantum Forge
-              3.	Stratos
-              4.	Orionix
-              5.	flux innovations
-              6.	CoreByte Systems
-              7.	Nexum AI
-              8.	aeris lab
-              9.	NeuralSphere
-              10.	Celestix
-              11.	TerraGrid
-              12.	ZenithCore
-              13.	ByteCraft
-              14.	NovaFusion
-              15.	Polaris Nexus
-              16.	infinicode
-              17.	Lumora`,
+              ? `1.	YOLO Wizard
+            2.	BagFlip420
+            3.	lambo_rush
+            4.	PumpChaserX
+            5.	MOON-Rider69
+            6.	Gainsy_BOI
+            7.	DegenXpress!
+            8.	HodL-R0CKET
+            9.	BigStack$999
+            10.	flipper CHAD
+            11.	PumpTh!s
+            12.	Dripn$hred88
+            13.	ToTheBagZ!
+            14.	D!P_snip3R
+            15.	R0ckETHawk
+            16.	cashFLOW69
+            17.	0xProfitZ
+            18.	Sn1pER_Rug
+            19.	DIADMOND Flip$
+            20.	gasKilla77
+            21.	stack & send
+            22.	MoonGainz42
+            23.	WEN_R0CKET
+            24.	BoostnBagz
+            25.	crypto LORDX
+            26.	Bulls Eyez!
+            27.	Cr4sh Monk3y
+            28.	Moon St0nker
+            29.	BAG_LaunchX
+            30.	Degen Titan!
+            31. ${companyName}`
+              : `1.	YOLO Wizard
+            2.	BagFlip420
+            3.	lambo_rush
+            4.	PumpChaserX
+            5.	MOON-Rider69
+            6.	Gainsy_BOI
+            7.	DegenXpress!
+            8.	HodL-R0CKET
+            9.	BigStack$999
+            10.	flipper CHAD
+            11.	PumpTh!s
+            12.	Dripn$hred88
+            13.	ToTheBagZ!
+            14.	D!P_snip3R
+            15.	R0ckETHawk
+            16.	cashFLOW69
+            17.	0xProfitZ
+            18.	Sn1pER_Rug
+            19.	DIADMOND Flip$
+            20.	gasKilla77
+            21.	stack & send
+            22.	MoonGainz42
+            23.	WEN_R0CKET
+            24.	BoostnBagz
+            25.	crypto LORDX
+            26.	Bulls Eyez!
+            27.	Cr4sh Monk3y
+            28.	Moon St0nker
+            29.	BAG_LaunchX
+            30.	Degen Titan!`,
+            onNextLine,
             1000,
             onNextLine,
             () => {
@@ -281,10 +635,10 @@ export default function QueueContent({
           sequence={
             companyName
               ? [
-                  `> Your Position: 18 of 18`,
+                  `> Your Position: 31 of 31`,
                   onNextLine,
-                  `> Your Position: 18 of 18
-            > Estimated Wait Time: 15 minutes`,
+                  `> Your Position: 31 of 31
+            > Estimated Wait Time: 3 hours 11 minutes`,
                   onNextLine,
                   1000,
                   onNextLine,

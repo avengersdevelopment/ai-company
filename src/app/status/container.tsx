@@ -1,359 +1,906 @@
 "use client";
 
+import { useUserStore } from "@/store/user-store";
 import { calculateEstimatedTime } from "@/utils/date";
 import Image from "next/image";
 import Link from "next/link";
 import { useEffect, useState } from "react";
 
 interface StatusItem {
-  type: string;
-  description: string;
-  company: string;
-  estimated: string;
-  status: string;
-  botName: string;
-}
-
-const statusItems: StatusItem[] = [
-  {
-    type: "Insight AI",
-    description:
-      "Provides data-driven insights and visualizations for market trends, customer behavior, and performance metrics.",
-    company: "ArcTech Solutions",
-    estimated: "~2 Hours",
-    status: "Active",
-    botName: "Clara",
-  },
-  {
-    type: "Insight AI",
-    description:
-      "Provides data-driven insights and visualizations for market trends, customer behavior, and performance metrics.",
-    company: "ArcTech Solutions",
-    estimated: "~2 Hours",
-    status: "Active",
-    botName: "Elliot",
-  },
-  {
-    type: "Insight AI",
-    description:
-      "Provides data-driven insights and visualizations for market trends, customer behavior, and performance metrics.",
-    company: "ArcTech Solutions",
-    estimated: "~2 Hours",
-    status: "Active",
-    botName: "Mira",
-  },
-  {
-    type: "Creative AI",
-    description:
-      "Generates branding ideas, ad copy, and creative campaigns to enhance client marketing and engagement strategies.",
-    company: "ArcTech Solutions",
-    estimated: "~3 Hours",
-    status: "In Queue",
-    botName: "Leo",
-  },
-  {
-    type: "Creative AI",
-    description:
-      "Generates branding ideas, ad copy, and creative campaigns to enhance client marketing and engagement strategies.",
-    company: "ArcTech Solutions",
-    estimated: "~3 Hours",
-    status: "In Queue",
-    botName: "Sophia",
-  },
-  {
-    type: "Creative AI",
-    description:
-      "Generates branding ideas, ad copy, and creative campaigns to enhance client marketing and engagement strategies.",
-    company: "ArcTech Solutions",
-    estimated: "~3 Hours",
-    status: "In Queue",
-    botName: "Aria",
-  },
-  {
-    type: "Financial AI",
-    description:
-      "Performs financial analysis, forecasts, and budgeting strategies to optimize costs and maximize ROI.",
-    company: "ArcTech Solutions",
-    estimated: "~5 Hours",
-    status: "In Queue",
-    botName: "Max",
-  },
-  {
-    type: "Financial AI",
-    description:
-      "Performs financial analysis, forecasts, and budgeting strategies to optimize costs and maximize ROI.",
-    company: "ArcTech Solutions",
-    estimated: "~5 Hours",
-    status: "In Queue",
-    botName: "Harper",
-  },
-  {
-    type: "Financial AI",
-    description:
-      "Performs financial analysis, forecasts, and budgeting strategies to optimize costs and maximize ROI.",
-    company: "ArcTech Solutions",
-    estimated: "~5 Hours",
-    status: "In Queue",
-    botName: "Sam",
-  },
-  {
-    type: "Operational AI",
-    description:
-      "Streamlines internal processes, evaluates supply chains, and suggests operational improvements to enhance efficiency.",
-    company: "ArcTech Solutions",
-    estimated: "~3 Hours",
-    status: "In Queue",
-    botName: "Oliver",
-  },
-  {
-    type: "Operational AI",
-    description:
-      "Streamlines internal processes, evaluates supply chains, and suggests operational improvements to enhance efficiency.",
-    company: "ArcTech Solutions",
-    estimated: "~3 Hours",
-    status: "In Queue",
-    botName: "Eve",
-  },
-  {
-    type: "Operational AI",
-    description:
-      "Streamlines internal processes, evaluates supply chains, and suggests operational improvements to enhance efficiency.",
-    company: "ArcTech Solutions",
-    estimated: "~3 Hours",
-    status: "In Queue",
-    botName: "Theo",
-  },
-  {
-    type: "Customer Experience AI",
-    description:
-      "Analyzes customer feedback and interactions to suggest improvements in user experience and customer journey design.",
-    company: "Quantum Forge",
-    estimated: "~5 Hours",
-    status: "Active",
-    botName: "Lila",
-  },
-  {
-    type: "Customer Experience AI",
-    description:
-      "Analyzes customer feedback and interactions to suggest improvements in user experience and customer journey design.",
-    company: "Quantum Forge",
-    estimated: "~5 Hours",
-    status: "Active",
-    botName: "Grace",
-  },
-  {
-    type: "Customer Experience AI",
-    description:
-      "Analyzes customer feedback and interactions to suggest improvements in user experience and customer journey design.",
-    company: "Quantum Forge",
-    estimated: "~5 Hours",
-    status: "Active",
-    botName: "Ella",
-  },
-  {
-    type: "Growth AI",
-    description:
-      "Designs scaling strategies, partnership opportunities, and business expansion plans for startups and enterprises.",
-    company: "Quantum Forge",
-    estimated: "~3 Hours",
-    status: "In Queue",
-    botName: "Mason",
-  },
-  {
-    type: "Growth AI",
-    description:
-      "Designs scaling strategies, partnership opportunities, and business expansion plans for startups and enterprises.",
-    company: "Quantum Forge",
-    estimated: "~3 Hours",
-    status: "In Queue",
-    botName: "Eleanor",
-  },
-  {
-    type: "Growth AI",
-    description:
-      "Designs scaling strategies, partnership opportunities, and business expansion plans for startups and enterprises.",
-    company: "Quantum Forge",
-    estimated: "~3 Hours",
-    status: "In Queue",
-    botName: "Liam",
-  },
-  {
-    type: "HR AI",
-    description:
-      "Supports recruitment, talent management, and workforce optimization using data-driven methodologies.",
-    company: "Quantum Forge",
-    estimated: "~5 Hours",
-    status: "In Queue",
-    botName: "Ava",
-  },
-  {
-    type: "HR AI",
-    description:
-      "Supports recruitment, talent management, and workforce optimization using data-driven methodologies.",
-    company: "Quantum Forge",
-    estimated: "~5 Hours",
-    status: "In Queue",
-    botName: "Noah",
-  },
-  {
-    type: "HR AI",
-    description:
-      "Supports recruitment, talent management, and workforce optimization using data-driven methodologies.",
-    company: "Quantum Forge",
-    estimated: "~5 Hours",
-    status: "In Queue",
-    botName: "Zara",
-  },
-  {
-    type: "Compliance AI",
-    description:
-      "Ensures that business processes align with legal, environmental, and industry-specific regulations.",
-    company: "Quantum Forge",
-    estimated: "~3 Hours",
-    status: "In Queue",
-    botName: "Emily",
-  },
-  {
-    type: "Compliance AI",
-    description:
-      "Ensures that business processes align with legal, environmental, and industry-specific regulations.",
-    company: "Quantum Forge",
-    estimated: "~3 Hours",
-    status: "In Queue",
-    botName: "Jacob",
-  },
-  {
-    type: "Compliance AI",
-    description:
-      "Ensures that business processes align with legal, environmental, and industry-specific regulations.",
-    company: "Quantum Forge",
-    estimated: "~3 Hours",
-    status: "In Queue",
-    botName: "Nina",
-  },
-  {
-    type: "Competitor AI",
-    description:
-      "Monitors and analyzes competitor activity to provide actionable intelligence on positioning and differentiation.",
-    company: "Stratos",
-    estimated: "~5 Hours",
-    status: "Active",
-    botName: "James",
-  },
-  {
-    type: "Competitor AI",
-    description:
-      "Monitors and analyzes competitor activity to provide actionable intelligence on positioning and differentiation.",
-    company: "Stratos",
-    estimated: "~5 Hours",
-    status: "Active",
-    botName: "Lily",
-  },
-  {
-    type: "Competitor AI",
-    description:
-      "Monitors and analyzes competitor activity to provide actionable intelligence on positioning and differentiation.",
-    company: "Stratos",
-    estimated: "~5 Hours",
-    status: "Active",
-    botName: "Hugo",
-  },
-  {
-    type: "Innovation AI",
-    description:
-      "Suggests product innovations, R&D directions, and breakthrough ideas based on market and technology trends.",
-    company: "Stratos",
-    estimated: "~3 Hours",
-    status: "In Queue",
-    botName: "Chloe",
-  },
-  {
-    type: "Innovation AI",
-    description:
-      "Suggests product innovations, R&D directions, and breakthrough ideas based on market and technology trends.",
-    company: "Stratos",
-    estimated: "~3 Hours",
-    status: "In Queue",
-    botName: "Oscar",
-  },
-  {
-    type: "Innovation AI",
-    description:
-      "Suggests product innovations, R&D directions, and breakthrough ideas based on market and technology trends.",
-    company: "Stratos",
-    estimated: "~3 Hours",
-    status: "In Queue",
-    botName: "Emma",
-  },
-  {
-    type: "Sustainability AI",
-    description:
-      "Develops eco-friendly strategies to help businesses reduce their carbon footprint and meet sustainability goals.",
-    company: "Stratos",
-    estimated: "~5 Hours",
-    status: "In Queue",
-    botName: "Aurora",
-  },
-  {
-    type: "Sustainability AI",
-    description:
-      "Develops eco-friendly strategies to help businesses reduce their carbon footprint and meet sustainability goals.",
-    company: "Stratos",
-    estimated: "~5 Hours",
-    status: "In Queue",
-    botName: "Finn",
-  },
-  {
-    type: "Sustainability AI",
-    description:
-      "Develops eco-friendly strategies to help businesses reduce their carbon footprint and meet sustainability goals.",
-    company: "Stratos",
-    estimated: "~5 Hours",
-    status: "In Queue",
-    botName: "Ivy",
-  },
-  {
-    type: "Crisis AI",
-    description:
-      "Creates crisis management plans and provides real-time recommendations to mitigate risks during emergencies.",
-    company: "Stratos",
-    estimated: "~3 Hours",
-    status: "In Queue",
-    botName: "Luna",
-  },
-  {
-    type: "Crisis AI",
-    description:
-      "Creates crisis management plans and provides real-time recommendations to mitigate risks during emergencies.",
-    company: "Stratos",
-    estimated: "~3 Hours",
-    status: "In Queue",
-    botName: "Ethan",
-  },
-  {
-    type: "Crisis AI",
-    description:
-      "Creates crisis management plans and provides real-time recommendations to mitigate risks during emergencies.",
-    company: "Stratos",
-    estimated: "~3 Hours",
-    status: "In Queue",
-    botName: "Claire",
-  },
-];
-
-export interface Consultation {
-  id: number;
-  name: string;
+  agent_type: string;
   description: string;
   client: string;
   ended_at: string;
+  status: string;
+  agent_name: string;
 }
 
-interface ContainerProps {
-  consultations: Consultation[];
-}
+const statusItems: StatusItem[] = [
+  // Insight AI
+  {
+    agent_type: "Insight AI",
+    description: "Provides strategic insights using advanced data analytics.",
+    client: "YOLO Wizard",
+    ended_at: "2025-01-17 18:00:00",
+    status: "Active",
+    agent_name: "Max",
+  },
+  {
+    agent_type: "Insight AI",
+    description: "Delivers actionable insights for business growth.",
+    client: "BagFlip420",
+    ended_at: "2025-01-17 19:00:00",
+    status: "Active",
+    agent_name: "Max",
+  },
+  {
+    agent_type: "Insight AI",
+    description: "Transforms data into strategic business insights.",
+    client: "lambo_rush",
+    ended_at: "2025-01-17 20:00:00",
+    status: "Active",
+    agent_name: "Max",
+  },
+  {
+    agent_type: "Insight AI",
+    description: "Utilizes AI to uncover hidden business opportunities.",
+    client: "YOLO Wizard",
+    ended_at: "2025-01-17 21:00:00",
+    status: "Active",
+    agent_name: "Nina",
+  },
+  {
+    agent_type: "Insight AI",
+    description: "Enhances decision-making with predictive analytics.",
+    client: "BagFlip420",
+    ended_at: "2025-01-17 22:00:00",
+    status: "Active",
+    agent_name: "Nina",
+  },
+  {
+    agent_type: "Insight AI",
+    description: "Empowers businesses with data-driven insights.",
+    client: "lambo_rush",
+    ended_at: "2025-01-17 23:00:00",
+    status: "Active",
+    agent_name: "Nina",
+  },
+  {
+    agent_type: "Insight AI",
+    description: "Leverages AI to provide comprehensive market analysis.",
+    client: "YOLO Wizard",
+    ended_at: "2025-01-17 24:00:00",
+    status: "Active",
+    agent_name: "Leo",
+  },
+  {
+    agent_type: "Insight AI",
+    description: "Offers deep insights into market trends and dynamics.",
+    client: "BagFlip420",
+    ended_at: "2025-01-17 19:00:00",
+    status: "Active",
+    agent_name: "Leo",
+  },
+  {
+    agent_type: "Insight AI",
+    description: "Facilitates strategic planning with AI-driven insights.",
+    client: "lambo_rush",
+    ended_at: "2025-01-17 19:00:00",
+    status: "Active",
+    agent_name: "Leo",
+  },
+  // Creative AI
+  {
+    agent_type: "Creative AI",
+    description: "Generates innovative content for marketing campaigns.",
+    client: "YOLO Wizard",
+    ended_at: "2025-01-17 19:00:00",
+    status: "Active",
+    agent_name: "Lily",
+  },
+  {
+    agent_type: "Creative AI",
+    description: "Enhances creative processes with AI-generated ideas.",
+    client: "BagFlip420",
+    ended_at: "2025-01-17 19:00:00",
+    status: "Active",
+    agent_name: "Lily",
+  },
+  {
+    agent_type: "Creative AI",
+    description: "Transforms creative concepts into compelling content.",
+    client: "lambo_rush",
+    ended_at: "2025-01-17 19:00:00",
+    status: "Active",
+    agent_name: "Lily",
+  },
+  {
+    agent_type: "Creative AI",
+    description: "Utilizes AI to craft unique and engaging narratives.",
+    client: "YOLO Wizard",
+    ended_at: "2025-01-17 19:00:00",
+    status: "Active",
+    agent_name: "Aria",
+  },
+  {
+    agent_type: "Creative AI",
+    description: "Supports creative teams with AI-driven content creation.",
+    client: "BagFlip420",
+    ended_at: "2025-01-17 19:00:00",
+    status: "Active",
+    agent_name: "Aria",
+  },
+  {
+    agent_type: "Creative AI",
+    description: "Inspires creativity through AI-enhanced storytelling.",
+    client: "lambo_rush",
+    ended_at: "2025-01-17 19:00:00",
+    status: "Active",
+    agent_name: "Aria",
+  },
+  {
+    agent_type: "Creative AI",
+    description: "Empowers brands with AI-generated visual content.",
+    client: "YOLO Wizard",
+    ended_at: "2025-01-17 19:00:00",
+    status: "Active",
+    agent_name: "Oliver",
+  },
+  {
+    agent_type: "Creative AI",
+    description: "Revolutionizes content creation with AI technology.",
+    client: "BagFlip420",
+    ended_at: "2025-01-17 19:00:00",
+    status: "Active",
+    agent_name: "Oliver",
+  },
+  {
+    agent_type: "Creative AI",
+    description: "Drives innovation in creative projects using AI.",
+    client: "lambo_rush",
+    ended_at: "2025-01-17 19:00:00",
+    status: "Active",
+    agent_name: "Oliver",
+  },
+  // Financial AI
+  {
+    agent_type: "Financial AI",
+    description: "Provides financial forecasting and risk assessment.",
+    client: "YOLO Wizard",
+    ended_at: "2025-01-17 19:00:00",
+    status: "Active",
+    agent_name: "Aiden",
+  },
+  {
+    agent_type: "Financial AI",
+    description: "Enhances financial strategies with predictive analytics.",
+    client: "BagFlip420",
+    ended_at: "2025-01-17 19:00:00",
+    status: "Active",
+    agent_name: "Aiden",
+  },
+  {
+    agent_type: "Financial AI",
+    description: "Optimizes investment portfolios using AI insights.",
+    client: "lambo_rush",
+    ended_at: "2025-01-17 19:00:00",
+    status: "Active",
+    agent_name: "Aiden",
+  },
+  {
+    agent_type: "Financial AI",
+    description: "Supports financial planning with AI-driven analysis.",
+    client: "YOLO Wizard",
+    ended_at: "2025-01-17 19:00:00",
+    status: "Active",
+    agent_name: "Ella",
+  },
+  {
+    agent_type: "Financial AI",
+    description: "Facilitates data-driven financial decision-making.",
+    client: "BagFlip420",
+    ended_at: "2025-01-17 19:00:00",
+    status: "Active",
+    agent_name: "Ella",
+  },
+  {
+    agent_type: "Financial AI",
+    description: "Leverages AI for comprehensive financial analysis.",
+    client: "lambo_rush",
+    ended_at: "2025-01-17 19:00:00",
+    status: "Active",
+    agent_name: "Ella",
+  },
+  {
+    agent_type: "Financial AI",
+    description: "Provides real-time financial insights and analytics.",
+    client: "YOLO Wizard",
+    ended_at: "2025-01-17 19:00:00",
+    status: "Active",
+    agent_name: "Max",
+  },
+  {
+    agent_type: "Financial AI",
+    description: "Transforms financial data into actionable insights.",
+    client: "BagFlip420",
+    ended_at: "2025-01-17 19:00:00",
+    status: "Active",
+    agent_name: "Max",
+  },
+  {
+    agent_type: "Financial AI",
+    description: "Empowers financial teams with AI-driven solutions.",
+    client: "lambo_rush",
+    ended_at: "2025-01-17 19:00:00",
+    status: "Active",
+    agent_name: "Max",
+  },
+  // Operational AI
+  {
+    agent_type: "Operational AI",
+    description: "Optimizes business operations through AI automation.",
+    client: "YOLO Wizard",
+    ended_at: "2025-01-17 19:00:00",
+    status: "Active",
+    agent_name: "Daniel",
+  },
+  {
+    agent_type: "Operational AI",
+    description: "Streamlines processes with AI-driven efficiency.",
+    client: "BagFlip420",
+    ended_at: "2025-01-17 19:00:00",
+    status: "Active",
+    agent_name: "Daniel",
+  },
+  {
+    agent_type: "Operational AI",
+    description: "Enhances operational workflows using AI technology.",
+    client: "lambo_rush",
+    ended_at: "2025-01-17 19:00:00",
+    status: "Active",
+    agent_name: "Daniel",
+  },
+  {
+    agent_type: "Operational AI",
+    description: "Facilitates seamless operations with AI solutions.",
+    client: "YOLO Wizard",
+    ended_at: "2025-01-17 19:00:00",
+    status: "Active",
+    agent_name: "Sophia",
+  },
+  {
+    agent_type: "Operational AI",
+    description: "Improves productivity through AI-driven automation.",
+    client: "BagFlip420",
+    ended_at: "2025-01-17 19:00:00",
+    status: "Active",
+    agent_name: "Sophia",
+  },
+  {
+    agent_type: "Operational AI",
+    description: "Leverages AI to enhance operational performance.",
+    client: "lambo_rush",
+    ended_at: "2025-01-17 19:00:00",
+    status: "Active",
+    agent_name: "Sophia",
+  },
+  {
+    agent_type: "Operational AI",
+    description: "Transforms operations with AI-powered solutions.",
+    client: "YOLO Wizard",
+    ended_at: "2025-01-17 19:00:00",
+    status: "Active",
+    agent_name: "James",
+  },
+  {
+    agent_type: "Operational AI",
+    description: "Drives operational excellence through AI innovation.",
+    client: "BagFlip420",
+    ended_at: "2025-01-17 19:00:00",
+    status: "Active",
+    agent_name: "James",
+  },
+  {
+    agent_type: "Operational AI",
+    description: "Empowers businesses with AI-enhanced operations.",
+    client: "lambo_rush",
+    ended_at: "2025-01-17 19:00:00",
+    status: "Active",
+    agent_name: "James",
+  },
+  // Customer Experience AI
+  {
+    agent_type: "Customer Experience AI",
+    description: "Enhances customer interactions with AI insights.",
+    client: "YOLO Wizard",
+    ended_at: "2025-01-17 19:00:00",
+    status: "Active",
+    agent_name: "Grace",
+  },
+  {
+    agent_type: "Customer Experience AI",
+    description: "Improves customer satisfaction through AI analysis.",
+    client: "BagFlip420",
+    ended_at: "2025-01-17 19:00:00",
+    status: "Active",
+    agent_name: "Grace",
+  },
+  {
+    agent_type: "Customer Experience AI",
+    description: "Transforms customer service with AI-driven solutions.",
+    client: "lambo_rush",
+    ended_at: "2025-01-17 19:00:00",
+    status: "Active",
+    agent_name: "Grace",
+  },
+  {
+    agent_type: "Customer Experience AI",
+    description: "Utilizes AI to personalize customer experiences.",
+    client: "YOLO Wizard",
+    ended_at: "2025-01-17 19:00:00",
+    status: "Active",
+    agent_name: "Zara",
+  },
+  {
+    agent_type: "Customer Experience AI",
+    description: "Enhances customer loyalty with AI-powered insights.",
+    client: "BagFlip420",
+    ended_at: "2025-01-17 19:00:00",
+    status: "Active",
+    agent_name: "Zara",
+  },
+  {
+    agent_type: "Customer Experience AI",
+    description: "Empowers customer service teams with AI tools.",
+    client: "lambo_rush",
+    ended_at: "2025-01-17 19:00:00",
+    status: "Active",
+    agent_name: "Zara",
+  },
+  {
+    agent_type: "Customer Experience AI",
+    description: "Drives customer engagement through AI technology.",
+    client: "YOLO Wizard",
+    ended_at: "2025-01-17 19:00:00",
+    status: "Active",
+    agent_name: "Amelia",
+  },
+  {
+    agent_type: "Customer Experience AI",
+    description: "Facilitates seamless customer interactions with AI.",
+    client: "BagFlip420",
+    ended_at: "2025-01-17 19:00:00",
+    status: "Active",
+    agent_name: "Amelia",
+  },
+  {
+    agent_type: "Customer Experience AI",
+    description: "Transforms customer feedback into actionable insights.",
+    client: "lambo_rush",
+    ended_at: "2025-01-17 19:00:00",
+    status: "Active",
+    agent_name: "Amelia",
+  },
+  // Growth AI
+  {
+    agent_type: "Growth AI",
+    description: "Supports business growth with AI-driven strategies.",
+    client: "YOLO Wizard",
+    ended_at: "2025-01-17 19:00:00",
+    status: "Active",
+    agent_name: "Lena",
+  },
+  {
+    agent_type: "Growth AI",
+    description: "Facilitates market expansion through AI insights.",
+    client: "BagFlip420",
+    ended_at: "2025-01-17 19:00:00",
+    status: "Active",
+    agent_name: "Lena",
+  },
+  {
+    agent_type: "Growth AI",
+    description: "Enhances growth potential with AI forecasting.",
+    client: "lambo_rush",
+    ended_at: "2025-01-17 19:00:00",
+    status: "Active",
+    agent_name: "Lena",
+  },
+  {
+    agent_type: "Growth AI",
+    description: "Utilizes AI to identify new growth opportunities.",
+    client: "YOLO Wizard",
+    ended_at: "2025-01-17 19:00:00",
+    status: "Active",
+    agent_name: "Jack",
+  },
+  {
+    agent_type: "Growth AI",
+    description: "Empowers businesses with AI-driven growth solutions.",
+    client: "BagFlip420",
+    ended_at: "2025-01-17 19:00:00",
+    status: "Active",
+    agent_name: "Jack",
+  },
+  {
+    agent_type: "Growth AI",
+    description: "Transforms growth strategies with AI technology.",
+    client: "lambo_rush",
+    ended_at: "2025-01-17 19:00:00",
+    status: "Active",
+    agent_name: "Jack",
+  },
+  {
+    agent_type: "Growth AI",
+    description: "Drives business expansion through AI innovation.",
+    client: "YOLO Wizard",
+    ended_at: "2025-01-17 19:00:00",
+    status: "Active",
+    agent_name: "Sophia",
+  },
+  {
+    agent_type: "Growth AI",
+    description: "Facilitates strategic growth with AI insights.",
+    client: "BagFlip420",
+    ended_at: "2025-01-17 19:00:00",
+    status: "Active",
+    agent_name: "Sophia",
+  },
+  {
+    agent_type: "Growth AI",
+    description: "Enhances market positioning through AI analysis.",
+    client: "lambo_rush",
+    ended_at: "2025-01-17 19:00:00",
+    status: "Active",
+    agent_name: "Sophia",
+  },
+  // HR AI
+  {
+    agent_type: "HR AI",
+    description: "Optimizes talent management with AI solutions.",
+    client: "YOLO Wizard",
+    ended_at: "2025-01-17 19:00:00",
+    status: "Active",
+    agent_name: "Emily",
+  },
+  {
+    agent_type: "HR AI",
+    description: "Enhances recruitment processes through AI technology.",
+    client: "BagFlip420",
+    ended_at: "2025-01-17 19:00:00",
+    status: "Active",
+    agent_name: "Emily",
+  },
+  {
+    agent_type: "HR AI",
+    description: "Facilitates employee engagement with AI insights.",
+    client: "lambo_rush",
+    ended_at: "2025-01-17 19:00:00",
+    status: "Active",
+    agent_name: "Emily",
+  },
+  {
+    agent_type: "HR AI",
+    description: "Supports HR teams with AI-driven analytics.",
+    client: "YOLO Wizard",
+    ended_at: "2025-01-17 19:00:00",
+    status: "Active",
+    agent_name: "Ethan",
+  },
+  {
+    agent_type: "HR AI",
+    description: "Transforms HR operations with AI-powered tools.",
+    client: "BagFlip420",
+    ended_at: "2025-01-17 19:00:00",
+    status: "Active",
+    agent_name: "Ethan",
+  },
+  {
+    agent_type: "HR AI",
+    description: "Empowers HR professionals with AI-enhanced solutions.",
+    client: "lambo_rush",
+    ended_at: "2025-01-17 19:00:00",
+    status: "Active",
+    agent_name: "Ethan",
+  },
+  {
+    agent_type: "HR AI",
+    description: "Drives talent acquisition through AI innovation.",
+    client: "YOLO Wizard",
+    ended_at: "2025-01-17 19:00:00",
+    status: "Active",
+    agent_name: "Olivia",
+  },
+  {
+    agent_type: "HR AI",
+    description: "Facilitates workforce optimization with AI insights.",
+    client: "BagFlip420",
+    ended_at: "2025-01-17 19:00:00",
+    status: "Active",
+    agent_name: "Olivia",
+  },
+  {
+    agent_type: "HR AI",
+    description: "Enhances employee retention through AI analysis.",
+    client: "lambo_rush",
+    ended_at: "2025-01-17 19:00:00",
+    status: "Active",
+    agent_name: "Olivia",
+  },
+  // Compliance AI
+  {
+    agent_type: "Compliance AI",
+    description: "Ensures regulatory compliance with AI solutions.",
+    client: "YOLO Wizard",
+    ended_at: "2025-01-17 19:00:00",
+    status: "Active",
+    agent_name: "John",
+  },
+  {
+    agent_type: "Compliance AI",
+    description: "Facilitates compliance monitoring through AI technology.",
+    client: "BagFlip420",
+    ended_at: "2025-01-17 19:00:00",
+    status: "Active",
+    agent_name: "John",
+  },
+  {
+    agent_type: "Compliance AI",
+    description: "Enhances compliance processes with AI-driven insights.",
+    client: "lambo_rush",
+    ended_at: "2025-01-17 19:00:00",
+    status: "Active",
+    agent_name: "John",
+  },
+  {
+    agent_type: "Compliance AI",
+    description: "Supports compliance teams with AI-powered tools.",
+    client: "YOLO Wizard",
+    ended_at: "2025-01-17 19:00:00",
+    status: "Active",
+    agent_name: "Sarah",
+  },
+  {
+    agent_type: "Compliance AI",
+    description: "Transforms compliance management with AI solutions.",
+    client: "BagFlip420",
+    ended_at: "2025-01-17 19:00:00",
+    status: "Active",
+    agent_name: "Sarah",
+  },
+  {
+    agent_type: "Compliance AI",
+    description: "Empowers businesses with AI-enhanced compliance strategies.",
+    client: "lambo_rush",
+    ended_at: "2025-01-17 19:00:00",
+    status: "Active",
+    agent_name: "Sarah",
+  },
+  {
+    agent_type: "Compliance AI",
+    description: "Drives regulatory adherence through AI innovation.",
+    client: "YOLO Wizard",
+    ended_at: "2025-01-17 19:00:00",
+    status: "Active",
+    agent_name: "Mason",
+  },
+  {
+    agent_type: "Compliance AI",
+    description: "Facilitates risk management with AI insights.",
+    client: "BagFlip420",
+    ended_at: "2025-01-17 19:00:00",
+    status: "Active",
+    agent_name: "Mason",
+  },
+  {
+    agent_type: "Compliance AI",
+    description: "Enhances policy enforcement through AI analysis.",
+    client: "lambo_rush",
+    ended_at: "2025-01-17 19:00:00",
+    status: "Active",
+    agent_name: "Mason",
+  },
+  // Competitor AI
+  {
+    agent_type: "Competitor AI",
+    description: "Analyzes market trends with AI-driven insights.",
+    client: "YOLO Wizard",
+    ended_at: "2025-01-17 19:00:00",
+    status: "Active",
+    agent_name: "Liam",
+  },
+  {
+    agent_type: "Competitor AI",
+    description: "Enhances competitive analysis through AI technology.",
+    client: "BagFlip420",
+    ended_at: "2025-01-17 19:00:00",
+    status: "Active",
+    agent_name: "Liam",
+  },
+  {
+    agent_type: "Competitor AI",
+    description: "Facilitates strategic positioning with AI insights.",
+    client: "lambo_rush",
+    ended_at: "2025-01-17 19:00:00",
+    status: "Active",
+    agent_name: "Liam",
+  },
+  {
+    agent_type: "Competitor AI",
+    description: "Supports market analysis with AI-driven tools.",
+    client: "YOLO Wizard",
+    ended_at: "2025-01-17 19:00:00",
+    status: "Active",
+    agent_name: "Emma",
+  },
+  {
+    agent_type: "Competitor AI",
+    description: "Transforms competitive strategies with AI solutions.",
+    client: "BagFlip420",
+    ended_at: "2025-01-17 19:00:00",
+    status: "Active",
+    agent_name: "Emma",
+  },
+  {
+    agent_type: "Competitor AI",
+    description: "Empowers businesses with AI-enhanced market analysis.",
+    client: "lambo_rush",
+    ended_at: "2025-01-17 19:00:00",
+    status: "Active",
+    agent_name: "Emma",
+  },
+  {
+    agent_type: "Competitor AI",
+    description: "Drives competitive advantage through AI innovation.",
+    client: "YOLO Wizard",
+    ended_at: "2025-01-17 19:00:00",
+    status: "Active",
+    agent_name: "Oliver",
+  },
+  {
+    agent_type: "Competitor AI",
+    description: "Facilitates market intelligence with AI insights.",
+    client: "BagFlip420",
+    ended_at: "2025-01-17 19:00:00",
+    status: "Active",
+    agent_name: "Oliver",
+  },
+  {
+    agent_type: "Competitor AI",
+    description: "Enhances strategic planning through AI analysis.",
+    client: "lambo_rush",
+    ended_at: "2025-01-17 19:00:00",
+    status: "Active",
+    agent_name: "Oliver",
+  },
+  // Innovation AI
+  {
+    agent_type: "Innovation AI",
+    description: "Identifies innovative strategies with AI insights.",
+    client: "YOLO Wizard",
+    ended_at: "2025-01-17 19:00:00",
+    status: "Active",
+    agent_name: "Grace",
+  },
+  {
+    agent_type: "Innovation AI",
+    description: "Enhances innovation processes through AI technology.",
+    client: "BagFlip420",
+    ended_at: "2025-01-17 19:00:00",
+    status: "Active",
+    agent_name: "Grace",
+  },
+  {
+    agent_type: "Innovation AI",
+    description: "Facilitates creative problem-solving with AI insights.",
+    client: "lambo_rush",
+    ended_at: "2025-01-17 19:00:00",
+    status: "Active",
+    agent_name: "Grace",
+  },
+  {
+    agent_type: "Innovation AI",
+    description: "Supports innovation teams with AI-driven tools.",
+    client: "YOLO Wizard",
+    ended_at: "2025-01-17 19:00:00",
+    status: "Active",
+    agent_name: "Dylan",
+  },
+  {
+    agent_type: "Innovation AI",
+    description: "Transforms innovation strategies with AI solutions.",
+    client: "BagFlip420",
+    ended_at: "2025-01-17 19:00:00",
+    status: "Active",
+    agent_name: "Dylan",
+  },
+  {
+    agent_type: "Innovation AI",
+    description: "Empowers businesses with AI-enhanced innovation.",
+    client: "lambo_rush",
+    ended_at: "2025-01-17 19:00:00",
+    status: "Active",
+    agent_name: "Dylan",
+  },
+  {
+    agent_type: "Innovation AI",
+    description: "Drives creative thinking through AI innovation.",
+    client: "YOLO Wizard",
+    ended_at: "2025-01-17 19:00:00",
+    status: "Active",
+    agent_name: "Nina",
+  },
+  {
+    agent_type: "Innovation AI",
+    description: "Facilitates breakthrough ideas with AI insights.",
+    client: "BagFlip420",
+    ended_at: "2025-01-17 19:00:00",
+    status: "Active",
+    agent_name: "Nina",
+  },
+  {
+    agent_type: "Innovation AI",
+    description: "Enhances product development through AI analysis.",
+    client: "lambo_rush",
+    ended_at: "2025-01-17 19:00:00",
+    status: "Active",
+    agent_name: "Nina",
+  },
+  // Sustainability AI
+  {
+    agent_type: "Sustainability AI",
+    description: "Promotes sustainable practices with AI solutions.",
+    client: "YOLO Wizard",
+    ended_at: "2025-01-17 19:00:00",
+    status: "Active",
+    agent_name: "Issac",
+  },
+  {
+    agent_type: "Sustainability AI",
+    description: "Facilitates eco-friendly strategies through AI insights.",
+    client: "BagFlip420",
+    ended_at: "2025-01-17 19:00:00",
+    status: "Active",
+    agent_name: "Issac",
+  },
+  {
+    agent_type: "Sustainability AI",
+    description: "Enhances environmental impact with AI-driven analysis.",
+    client: "lambo_rush",
+    ended_at: "2025-01-17 19:00:00",
+    status: "Active",
+    agent_name: "Issac",
+  },
+  {
+    agent_type: "Sustainability AI",
+    description: "Supports sustainability initiatives with AI tools.",
+    client: "YOLO Wizard",
+    ended_at: "2025-01-17 19:00:00",
+    status: "Active",
+    agent_name: "Grace",
+  },
+  {
+    agent_type: "Sustainability AI",
+    description: "Transforms sustainability strategies with AI solutions.",
+    client: "BagFlip420",
+    ended_at: "2025-01-17 19:00:00",
+    status: "Active",
+    agent_name: "Grace",
+  },
+  {
+    agent_type: "Sustainability AI",
+    description: "Empowers businesses with AI-enhanced sustainability.",
+    client: "lambo_rush",
+    ended_at: "2025-01-17 19:00:00",
+    status: "Active",
+    agent_name: "Grace",
+  },
+  {
+    agent_type: "Sustainability AI",
+    description: "Drives green innovation through AI technology.",
+    client: "YOLO Wizard",
+    ended_at: "2025-01-17 19:00:00",
+    status: "Active",
+    agent_name: "Ethan",
+  },
+  {
+    agent_type: "Sustainability AI",
+    description: "Facilitates resource efficiency with AI insights.",
+    client: "BagFlip420",
+    ended_at: "2025-01-17 19:00:00",
+    status: "Active",
+    agent_name: "Ethan",
+  },
+  {
+    agent_type: "Sustainability AI",
+    description: "Enhances corporate responsibility through AI analysis.",
+    client: "lambo_rush",
+    ended_at: "2025-01-17 19:00:00",
+    status: "Active",
+    agent_name: "Ethan",
+  },
+  // Crisis AI
+  {
+    agent_type: "Crisis AI",
+    description: "Manages crisis situations with AI-driven solutions.",
+    client: "YOLO Wizard",
+    ended_at: "2025-01-17 19:00:00",
+    status: "Active",
+    agent_name: "Luke",
+  },
+  {
+    agent_type: "Crisis AI",
+    description: "Facilitates crisis response through AI technology.",
+    client: "BagFlip420",
+    ended_at: "2025-01-17 19:00:00",
+    status: "Active",
+    agent_name: "Luke",
+  },
+  {
+    agent_type: "Crisis AI",
+    description: "Enhances crisis management with AI insights.",
+    client: "lambo_rush",
+    ended_at: "2025-01-17 19:00:00",
+    status: "Active",
+    agent_name: "Luke",
+  },
+  {
+    agent_type: "Crisis AI",
+    description: "Supports crisis teams with AI-driven tools.",
+    client: "YOLO Wizard",
+    ended_at: "2025-01-17 19:00:00",
+    status: "Active",
+    agent_name: "Olivia",
+  },
+  {
+    agent_type: "Crisis AI",
+    description: "Transforms crisis strategies with AI solutions.",
+    client: "BagFlip420",
+    ended_at: "2025-01-17 19:00:00",
+    status: "Active",
+    agent_name: "Olivia",
+  },
+  {
+    agent_type: "Crisis AI",
+    description: "Empowers businesses with AI-enhanced crisis management.",
+    client: "lambo_rush",
+    ended_at: "2025-01-17 19:00:00",
+    status: "Active",
+    agent_name: "Olivia",
+  },
+  {
+    agent_type: "Crisis AI",
+    description: "Drives effective crisis resolution through AI innovation.",
+    client: "YOLO Wizard",
+    ended_at: "2025-01-17 19:00:00",
+    status: "Active",
+    agent_name: "Michael",
+  },
+  {
+    agent_type: "Crisis AI",
+    description: "Facilitates rapid crisis response with AI insights.",
+    client: "BagFlip420",
+    ended_at: "2025-01-17 19:00:00",
+    status: "Active",
+    agent_name: "Michael",
+  },
+  {
+    agent_type: "Crisis AI",
+    description: "Enhances crisis preparedness through AI analysis.",
+    client: "lambo_rush",
+    ended_at: "2025-01-17 19:00:00",
+    status: "Active",
+    agent_name: "Michael",
+  },
+];
 
-export default function Container({ consultations }: ContainerProps) {
+export default function Container() {
+  const { dateAccess } = useUserStore();
+
+  function hideRow(index: number) {
+    
+  }
+
   return (
     <main className="relative h-screen w-full px-4 py-16 md:px-10">
       <Image
@@ -407,12 +954,12 @@ export default function Container({ consultations }: ContainerProps) {
                 </tr>
               </thead>
               <tbody>
-                {consultations?.map((e, index) => (
+                {statusItems?.map((e, index) => (
                   <tr
-                    key={e.id}
+                    key={index}
                     className="border border-[#FFCE8E] text-sm text-[#FDB479]"
                   >
-                    <td className="border-r border-[#FFCE8E] p-4">{e.name}</td>
+                    <td className="border-r border-[#FFCE8E] p-4">{`${e.agent_name} - ${e.agent_type}`}</td>
                     <td className="border-r border-[#FFCE8E] p-4">
                       {e.description}
                     </td>
@@ -420,10 +967,10 @@ export default function Container({ consultations }: ContainerProps) {
                       {e.client}
                     </td>
                     <td className="border-r border-[#FFCE8E] p-4">
-                      ~{calculateEstimatedTime(e.ended_at)}
+                      ~{index % 3 === 0 ? 3 : (index + 1) * 6} minutes
                     </td>
                     <td className="p-4">
-                      {index === 0 ? "Active" : "In Queue"}
+                      {index % 3 === 0 ? "Active" : "In Queue"}
                     </td>
                   </tr>
                 ))}
