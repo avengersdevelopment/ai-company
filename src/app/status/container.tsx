@@ -6,122 +6,338 @@ import Link from "next/link";
 import { useEffect, useState } from "react";
 
 interface StatusItem {
-  id: number;
   type: string;
   description: string;
   company: string;
   estimated: string;
   status: string;
+  botName: string;
 }
 
 const statusItems: StatusItem[] = [
   {
-    id: 1,
     type: "Insight AI",
     description:
       "Provides data-driven insights and visualizations for market trends, customer behavior, and performance metrics.",
     company: "ArcTech Solutions",
     estimated: "~2 Hours",
     status: "Active",
+    botName: "Clara",
   },
   {
-    id: 2,
+    type: "Insight AI",
+    description:
+      "Provides data-driven insights and visualizations for market trends, customer behavior, and performance metrics.",
+    company: "ArcTech Solutions",
+    estimated: "~2 Hours",
+    status: "Active",
+    botName: "Elliot",
+  },
+  {
+    type: "Insight AI",
+    description:
+      "Provides data-driven insights and visualizations for market trends, customer behavior, and performance metrics.",
+    company: "ArcTech Solutions",
+    estimated: "~2 Hours",
+    status: "Active",
+    botName: "Mira",
+  },
+  {
     type: "Creative AI",
     description:
       "Generates branding ideas, ad copy, and creative campaigns to enhance client marketing and engagement strategies.",
     company: "ArcTech Solutions",
     estimated: "~3 Hours",
     status: "In Queue",
+    botName: "Leo",
   },
   {
-    id: 3,
+    type: "Creative AI",
+    description:
+      "Generates branding ideas, ad copy, and creative campaigns to enhance client marketing and engagement strategies.",
+    company: "ArcTech Solutions",
+    estimated: "~3 Hours",
+    status: "In Queue",
+    botName: "Sophia",
+  },
+  {
+    type: "Creative AI",
+    description:
+      "Generates branding ideas, ad copy, and creative campaigns to enhance client marketing and engagement strategies.",
+    company: "ArcTech Solutions",
+    estimated: "~3 Hours",
+    status: "In Queue",
+    botName: "Aria",
+  },
+  {
     type: "Financial AI",
     description:
       "Performs financial analysis, forecasts, and budgeting strategies to optimize costs and maximize ROI.",
     company: "ArcTech Solutions",
     estimated: "~5 Hours",
     status: "In Queue",
+    botName: "Max",
   },
   {
-    id: 4,
+    type: "Financial AI",
+    description:
+      "Performs financial analysis, forecasts, and budgeting strategies to optimize costs and maximize ROI.",
+    company: "ArcTech Solutions",
+    estimated: "~5 Hours",
+    status: "In Queue",
+    botName: "Harper",
+  },
+  {
+    type: "Financial AI",
+    description:
+      "Performs financial analysis, forecasts, and budgeting strategies to optimize costs and maximize ROI.",
+    company: "ArcTech Solutions",
+    estimated: "~5 Hours",
+    status: "In Queue",
+    botName: "Sam",
+  },
+  {
     type: "Operational AI",
     description:
       "Streamlines internal processes, evaluates supply chains, and suggests operational improvements to enhance efficiency.",
     company: "ArcTech Solutions",
     estimated: "~3 Hours",
     status: "In Queue",
+    botName: "Oliver",
   },
   {
-    id: 5,
+    type: "Operational AI",
+    description:
+      "Streamlines internal processes, evaluates supply chains, and suggests operational improvements to enhance efficiency.",
+    company: "ArcTech Solutions",
+    estimated: "~3 Hours",
+    status: "In Queue",
+    botName: "Eve",
+  },
+  {
+    type: "Operational AI",
+    description:
+      "Streamlines internal processes, evaluates supply chains, and suggests operational improvements to enhance efficiency.",
+    company: "ArcTech Solutions",
+    estimated: "~3 Hours",
+    status: "In Queue",
+    botName: "Theo",
+  },
+  {
     type: "Customer Experience AI",
     description:
       "Analyzes customer feedback and interactions to suggest improvements in user experience and customer journey design.",
     company: "Quantum Forge",
     estimated: "~5 Hours",
     status: "Active",
+    botName: "Lila",
   },
   {
-    id: 6,
+    type: "Customer Experience AI",
+    description:
+      "Analyzes customer feedback and interactions to suggest improvements in user experience and customer journey design.",
+    company: "Quantum Forge",
+    estimated: "~5 Hours",
+    status: "Active",
+    botName: "Grace",
+  },
+  {
+    type: "Customer Experience AI",
+    description:
+      "Analyzes customer feedback and interactions to suggest improvements in user experience and customer journey design.",
+    company: "Quantum Forge",
+    estimated: "~5 Hours",
+    status: "Active",
+    botName: "Ella",
+  },
+  {
     type: "Growth AI",
     description:
       "Designs scaling strategies, partnership opportunities, and business expansion plans for startups and enterprises.",
     company: "Quantum Forge",
     estimated: "~3 Hours",
     status: "In Queue",
+    botName: "Mason",
   },
   {
-    id: 7,
+    type: "Growth AI",
+    description:
+      "Designs scaling strategies, partnership opportunities, and business expansion plans for startups and enterprises.",
+    company: "Quantum Forge",
+    estimated: "~3 Hours",
+    status: "In Queue",
+    botName: "Eleanor",
+  },
+  {
+    type: "Growth AI",
+    description:
+      "Designs scaling strategies, partnership opportunities, and business expansion plans for startups and enterprises.",
+    company: "Quantum Forge",
+    estimated: "~3 Hours",
+    status: "In Queue",
+    botName: "Liam",
+  },
+  {
     type: "HR AI",
     description:
       "Supports recruitment, talent management, and workforce optimization using data-driven methodologies.",
     company: "Quantum Forge",
     estimated: "~5 Hours",
     status: "In Queue",
+    botName: "Ava",
   },
   {
-    id: 8,
+    type: "HR AI",
+    description:
+      "Supports recruitment, talent management, and workforce optimization using data-driven methodologies.",
+    company: "Quantum Forge",
+    estimated: "~5 Hours",
+    status: "In Queue",
+    botName: "Noah",
+  },
+  {
+    type: "HR AI",
+    description:
+      "Supports recruitment, talent management, and workforce optimization using data-driven methodologies.",
+    company: "Quantum Forge",
+    estimated: "~5 Hours",
+    status: "In Queue",
+    botName: "Zara",
+  },
+  {
     type: "Compliance AI",
     description:
       "Ensures that business processes align with legal, environmental, and industry-specific regulations.",
     company: "Quantum Forge",
     estimated: "~3 Hours",
     status: "In Queue",
+    botName: "Emily",
   },
   {
-    id: 9,
+    type: "Compliance AI",
+    description:
+      "Ensures that business processes align with legal, environmental, and industry-specific regulations.",
+    company: "Quantum Forge",
+    estimated: "~3 Hours",
+    status: "In Queue",
+    botName: "Jacob",
+  },
+  {
+    type: "Compliance AI",
+    description:
+      "Ensures that business processes align with legal, environmental, and industry-specific regulations.",
+    company: "Quantum Forge",
+    estimated: "~3 Hours",
+    status: "In Queue",
+    botName: "Nina",
+  },
+  {
     type: "Competitor AI",
     description:
       "Monitors and analyzes competitor activity to provide actionable intelligence on positioning and differentiation.",
     company: "Stratos",
     estimated: "~5 Hours",
     status: "Active",
+    botName: "James",
   },
   {
-    id: 10,
+    type: "Competitor AI",
+    description:
+      "Monitors and analyzes competitor activity to provide actionable intelligence on positioning and differentiation.",
+    company: "Stratos",
+    estimated: "~5 Hours",
+    status: "Active",
+    botName: "Lily",
+  },
+  {
+    type: "Competitor AI",
+    description:
+      "Monitors and analyzes competitor activity to provide actionable intelligence on positioning and differentiation.",
+    company: "Stratos",
+    estimated: "~5 Hours",
+    status: "Active",
+    botName: "Hugo",
+  },
+  {
     type: "Innovation AI",
     description:
       "Suggests product innovations, R&D directions, and breakthrough ideas based on market and technology trends.",
     company: "Stratos",
     estimated: "~3 Hours",
     status: "In Queue",
+    botName: "Chloe",
   },
   {
-    id: 11,
+    type: "Innovation AI",
+    description:
+      "Suggests product innovations, R&D directions, and breakthrough ideas based on market and technology trends.",
+    company: "Stratos",
+    estimated: "~3 Hours",
+    status: "In Queue",
+    botName: "Oscar",
+  },
+  {
+    type: "Innovation AI",
+    description:
+      "Suggests product innovations, R&D directions, and breakthrough ideas based on market and technology trends.",
+    company: "Stratos",
+    estimated: "~3 Hours",
+    status: "In Queue",
+    botName: "Emma",
+  },
+  {
     type: "Sustainability AI",
     description:
       "Develops eco-friendly strategies to help businesses reduce their carbon footprint and meet sustainability goals.",
     company: "Stratos",
     estimated: "~5 Hours",
     status: "In Queue",
+    botName: "Aurora",
   },
   {
-    id: 12,
+    type: "Sustainability AI",
+    description:
+      "Develops eco-friendly strategies to help businesses reduce their carbon footprint and meet sustainability goals.",
+    company: "Stratos",
+    estimated: "~5 Hours",
+    status: "In Queue",
+    botName: "Finn",
+  },
+  {
+    type: "Sustainability AI",
+    description:
+      "Develops eco-friendly strategies to help businesses reduce their carbon footprint and meet sustainability goals.",
+    company: "Stratos",
+    estimated: "~5 Hours",
+    status: "In Queue",
+    botName: "Ivy",
+  },
+  {
     type: "Crisis AI",
     description:
       "Creates crisis management plans and provides real-time recommendations to mitigate risks during emergencies.",
     company: "Stratos",
     estimated: "~3 Hours",
     status: "In Queue",
+    botName: "Luna",
+  },
+  {
+    type: "Crisis AI",
+    description:
+      "Creates crisis management plans and provides real-time recommendations to mitigate risks during emergencies.",
+    company: "Stratos",
+    estimated: "~3 Hours",
+    status: "In Queue",
+    botName: "Ethan",
+  },
+  {
+    type: "Crisis AI",
+    description:
+      "Creates crisis management plans and provides real-time recommendations to mitigate risks during emergencies.",
+    company: "Stratos",
+    estimated: "~3 Hours",
+    status: "In Queue",
+    botName: "Claire",
   },
 ];
 
