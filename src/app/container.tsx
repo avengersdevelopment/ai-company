@@ -10,7 +10,7 @@ export default function Container() {
 
   return (
     <main className="relative h-full min-h-screen w-full px-4 py-16 md:h-screen md:px-10">
-      <div className="flex h-full w-full flex-col md:items-center justify-center gap-4">
+      <div className="flex h-full w-full flex-col md:items-center items-start justify-center gap-4">
         <p className="text-sm text-[#FFCE8E]">V.0.1.0</p>
         <p className="text-6xl font-bold text-[#FFCE8E]">Neuroworks</p>
         <p className="w-full text-center text-sm text-[#FFCE8E] md:w-1/2">
