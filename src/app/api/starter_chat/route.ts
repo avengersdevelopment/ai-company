@@ -1,25 +1,18 @@
 // app/api/chat/route.ts
 import { NextResponse } from 'next/server'
 import redis from '@/utils/redis'
-import flowiseClient from '@/utils/flowise'
+import openai from '@/utils/openai'
 import { getChapterPrompts } from '@/data/prompts'
-
-// Static values
-const STATIC_VALUES = {
-  question: "send me my user prompt again as a helper"
-}
-
-// Verify environment variables
-if (!process.env.INTENT_RECOGNIZER_CHATFLOW_ID) {
-  throw new Error('INTENT_RECOGNIZER_CHATFLOW_ID is not defined in environment variables');
-}
-
-const CHATFLOW_ID = process.env.INTENT_RECOGNIZER_CHATFLOW_ID;
+import { ChatCompletionMessageParam } from 'openai/resources/chat/completions'
 
 interface ChatMessage {
-  character: string;
-  message: string;
-}
+    messageNo: number;
+    timestamp: string;
+    character: string;
+    role: string;
+    character_id: string;
+    message: string;
+  }
 
 // Helper function to get chat history from Redis
 async function getStoredChat(chapterId: string, sessionId: string) {
@@ -46,14 +39,27 @@ async function storeChat(key: string, data: ChatMessage[], expiry: number = 8640
   }
 }
 
-function formatHistoryForFlowise(history: ChatMessage[]) {
+function formatHistoryForPrompt(history: ChatMessage[]) {
   const formattedHistory = {
     messages: history.map(msg => ({
+      messageNo: msg.messageNo,
+      timestamp: msg.timestamp,
       sender: msg.character,
+      sender_role: msg.role,
       content: msg.message
     }))
   };
-  return JSON.stringify(formattedHistory);
+  return JSON.stringify(formattedHistory, null, 2);
+}
+
+function getCurrentTimestamp(): string {
+  return new Date().toISOString();
+}
+
+function getNextMessageNumber(chatHistory: ChatMessage[]): number {
+  if (chatHistory.length === 0) return 1;
+  const lastMessage = chatHistory[chatHistory.length - 1];
+  return lastMessage.messageNo + 1;
 }
 
 export async function POST(request: Request) {
@@ -67,31 +73,53 @@ export async function POST(request: Request) {
       )
     }
 
+    // Get chapter-specific prompts
     const { systemPrompt, humanPrompt } = getChapterPrompts(chapter_id)
+
     // Get existing chat history from Redis
     const chatHistory = await getStoredChat(chapter_id, session_id)
-    const historyString = formatHistoryForFlowise(chatHistory)
+    const historyString = formatHistoryForPrompt(chatHistory)
 
-    console.log(humanPrompt.replace('{text}', STATIC_VALUES.question).replace('{history}', historyString))
+    // Create message array for OpenAI with proper typing
+    const messages: ChatCompletionMessageParam[] = [
+      {
+        role: "system",
+        content: systemPrompt
+      },
+      {
+        role: "user",
+        content: humanPrompt
+          .replace('{text}', "who is the latest person in the chat history, if there is no chat history create a mock message")
+          .replace('{history}', historyString)
+      }
+    ];
 
+    console.log('Sending to OpenAI:', messages);
 
-    // Make prediction using Flowise with chat history
-    const prediction = await flowiseClient.createPrediction({
-        chatflowId: CHATFLOW_ID,
-        question: STATIC_VALUES.question,
-        overrideConfig: {
-            chatPromptTemplate_0 : {
-                systemMessagePrompt: systemPrompt,
-          humanMessagePrompt: humanPrompt.replace('{text}', STATIC_VALUES.question).replace('{history}', historyString)
-            }
-          
-        },
-      });
+    // Call OpenAI API
+    const completion = await openai.chat.completions.create({
+      model: "gpt-4-0125-preview",
+      messages,
+      temperature: 0.7,
+      response_format: { type: "json_object" }
+    });
 
-    // Format the response
+    // Parse the response
+    const responseContent = completion.choices[0].message.content;
+    if (!responseContent) {
+      throw new Error('No response from OpenAI');
+    }
+
+    const parsedResponse = JSON.parse(responseContent);
+    
+    // Format the response with message number and timestamp
     const formattedResponse: ChatMessage = {
-      character: prediction.json.character,
-      message: prediction.json.message || prediction.text
+      messageNo: getNextMessageNumber(chatHistory),
+      timestamp: getCurrentTimestamp(),
+      character: parsedResponse.character,
+      message: parsedResponse.message,
+      character_id : parsedResponse.character_id,
+      role : parsedResponse.role
     }
 
     // Generate Redis key using chapter_id + session_id
@@ -112,8 +140,7 @@ export async function POST(request: Request) {
     return NextResponse.json(
       { 
         error: 'Internal server error', 
-        details: error instanceof Error ? error.message : 'Unknown error',
-        chatflowId: CHATFLOW_ID
+        details: error instanceof Error ? error.message : 'Unknown error'
       },
       { status: 500 }
     )
